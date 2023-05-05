@@ -9,9 +9,6 @@ body {
 a {
   text-decoration: none;
 }
-#login{
-  color:red
-}
 
 label {
   display: block;
@@ -34,7 +31,7 @@ form div {
   margin: 0;
 }
 
-.container{
+#nav-container{
   display: flex;
   justify-content: space-between;
 }
