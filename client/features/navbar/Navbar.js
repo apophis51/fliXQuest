@@ -12,7 +12,7 @@ const Navbar = () => {
   };
   return (
     <div>
-      <nav>
+      <nav className="nav" >
         {isLoggedIn ? (
           <div className="container">
             <div className="img">
@@ -30,8 +30,8 @@ const Navbar = () => {
                 <a href="#">Link 3</a>
               </div>
             </div>
-            <input type="text" placeholder="Search.." />
-            <button type="button" onClick={logoutAndRedirectHome}>
+            <input className="search" type="text" placeholder="Search.." />
+            <button className="links" type="button" onClick={logoutAndRedirectHome}>
               Logout
             </button>
           </div>
@@ -46,16 +46,16 @@ const Navbar = () => {
             />
             </div>
             <div className="dropdown">
-              <button className="dropbtn">Dropdown</button>
+              <button className="dropbtn">Menu</button>
               <div className="dropdown-content">
                 <a href="#">Link 1</a>
                 <a href="#">Link 2</a>
                 <a href="#">Link 3</a>
               </div>
             </div>
-            <input type="text" placeholder="Search.." />
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
+            <input className="search" type="text" placeholder="Search.." />
+            <Link className="links" to="/login">Login</Link>
+            <Link className="links" to="/signup">Sign Up</Link>
           </div>
         )}
       </nav>
