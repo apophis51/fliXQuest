@@ -18,6 +18,9 @@ router.get("/", async (req, res, next) => {
     next(error);
   }
 });
+// const movie = await axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${process.env.api_key}&query=${req.params.id}`);
+//https://api.themoviedb.org/3/tv/{tv_id}?api_key=<<api_key>>&language=en-US
+
 
 router.get("/:id", async (req, res, next) => {
   try {
