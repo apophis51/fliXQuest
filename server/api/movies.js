@@ -36,14 +36,31 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.post("/", async (req, res, next) => {
+//758323
+router.get("/single/:id", async (req, res, next) => {
   try {
-    const newMovie = await Movie.create(req.body);
-    res.json(newMovie);
+    const apiKey = process.env.api_key;
+    console.log(apiKey)
+   
+    const movie = await axios.get(`https://api.themoviedb.org/3/movie/${758323}?api_key=${process.env.api_key}&query=${req.params.id}&language=en-US`);
+
+    console.log(movie.data);
+
+    res.json(movie.data);
   } catch (error) {
     next(error);
   }
 });
+
+
+// router.post("/", async (req, res, next) => {
+//   try {
+//     const newMovie = await Movie.create(req.body);
+//     res.json(newMovie);
+//   } catch (error) {
+//     next(error);
+//   }
+// });
 
 router.delete("/:id", async (req, res, next) => {
   try {
