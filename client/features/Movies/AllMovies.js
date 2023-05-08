@@ -33,19 +33,40 @@ const AllMovies = () => {
   }
 
   return (
-    <div>
+    <div className="movies-container">
+      <p className="page-title">All Movies</p>
+      <div className="categories">
+        {/* <p>Title</p> */}
+        {/* <p className="text">Ranking</p> */}
+        <p id="release-date" className="text">Release Date</p>
+      </div>
       <div className="AllMovies">
-        {movies.map((movie) => (
-          <div key={movie.id}>
-            <Link to={`/movies/${movie.id}`}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-              />
-              <div>{movie.title}</div>
-            </Link>
-          </div>
-        ))}
+        <div className="inner-container">
+          {movies.map((movie) => (
+            <div className="movies" key={movie.id}>
+              <Link to={`/movies/${movie.id}`}>
+                <div className="inner-box">
+                  <img
+                    className="movie-poster"
+                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    alt={movie.title}
+                  />
+                  <div className="rank-star">
+                  <img
+                        className="star"
+                        src="https://www.supercoloring.com/sites/default/files/styles/drawing_full/public/fif/2017/05/gold-star-paper-craft.png"
+                      ></img>
+                    <p className="text">
+                      {movie.vote_average}
+                    </p>
+                    </div>
+                    <p className="text">{movie.release_date}</p>
+
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
