@@ -18,32 +18,33 @@ router.get("/", async (req, res, next) => {
     next(error);
   }
 });
-// const movie = await axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${process.env.api_key}&query=${req.params.id}`);
-//https://api.themoviedb.org/3/tv/{tv_id}?api_key=<<api_key>>&language=en-US
+
 
 
 router.get("/:id", async (req, res, next) => {
   try {
     const apiKey = process.env.api_key;
-    const tvshow = await axios.get(
-      `${process.env.REACT_APP_BASE_URL}/tv/${req.params.id}?api_key=${apiKey}`
-    );
-    console.log(tvshow.data);
+    console.log(apiKey)
 
-    res.json(tvshow.data);
+    const movie = await axios.get(`https://api.themoviedb.org/3/tv/${req.params.id}?api_key=${process.env.api_key}&language=en-US`);
+
+    console.log(movie.data);
+
+    res.json(movie.data);
   } catch (error) {
     next(error);
   }
 });
 
-router.post("/", async (req, res, next) => {
-  try {
-    const newTVshow = await TVshow.create(req.body);
-    res.json(newTVshow);
-  } catch (error) {
-    next(error);
-  }
-});
+
+// router.post("/", async (req, res, next) => {
+//   try {
+//     const newTVshow = await TVshow.create(req.body);
+//     res.json(newTVshow);
+//   } catch (error) {
+//     next(error);
+//   }
+// });
 
 router.delete("/:id", async (req, res, next) => {
   try {
