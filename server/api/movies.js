@@ -42,7 +42,7 @@ router.get("/single/:id", async (req, res, next) => {
     const apiKey = process.env.api_key;
     console.log(apiKey)
    
-    const movie = await axios.get(`https://api.themoviedb.org/3/movie/${758323}?api_key=1cf50e6248dc270629e802686245c2c8&language=en-US`);
+    const movie = await axios.get(`https://api.themoviedb.org/3/movie/${req.params.id}?api_key=${process.env.api_key}&language=en-US`);
 
     console.log(movie.data);
 
