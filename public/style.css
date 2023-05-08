@@ -4,6 +4,7 @@
 
 body {
   font-family: sans-serif;
+  background-color: black;
 }
 
 a {
@@ -99,5 +100,73 @@ form div {
 .nav{
   background-color: black;
 }
+
+.movie-poster{
+  height: 160px;
+  width: 110px;
+  border-radius: 15px;
+}
+
+.title{
+  padding: 20px;
+}
+
+.inner-container{
+  margin: 10px;
+}
+
+.movies{
+  padding-bottom: 10px;
+  background-color: rgb(70, 65, 65);
+  border: solid black 2px;
+  border-radius: 15px;
+  padding: 20px;
+  width: 100%
+}
+
+.page-title{
+  padding: 15px;
+  font-size: 2em;
+  color: rgb(228, 127, 26);
+  text-decoration: underline;
+}
+
+.inner-box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.star{
+  width: 25px;
+  height: 25px;
+  padding-right: 5px;
+}
+
+.rank-star{
+  display: flex;
+}
+
+.movies-container{
+  height: 90%;
+  width: 75%;
+  padding-left: 200px;
+}
+
+.text{
+  color: white;
+}
+
+.categories{
+  display: flex;
+  justify-content:end;
+  margin-right: 20px;
+}
+
+
+
+
+
+
 
 
