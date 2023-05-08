@@ -1,34 +1,33 @@
 const router = require("express").Router();
 const axios = require("axios");
 const dotenv = require("dotenv");
-const Movie = require("../db/models/Movies");
+const TVshow = require("../db/models/TVSHOWS");
 
 dotenv.config();
 
 router.get("/", async (req, res, next) => {
   try {
     const apiKey = process.env.api_key;
-    const movies = await axios.get(
-      `${process.env.REACT_APP_BASE_URL}/discover/movie?api_key=${apiKey}`
+    const tvshows = await axios.get(
+      `${process.env.REACT_APP_BASE_URL}/discover/tv?api_key=${apiKey}`
     );
-    console.log(movies.data);
+    console.log(tvshows.data);
 
-    res.json(movies.data);
+    res.json(tvshows.data);
   } catch (error) {
     next(error);
   }
 });
 
-
 router.get("/:id", async (req, res, next) => {
   try {
     const apiKey = process.env.api_key;
-    const movie = await axios.get(
-      `${process.env.REACT_APP_BASE_URL}/movie/${req.params.id}?api_key=${apiKey}`
+    const tvshow = await axios.get(
+      `${process.env.REACT_APP_BASE_URL}/tv/${req.params.id}?api_key=${apiKey}`
     );
-    console.log(movie.data);
+    console.log(tvshow.data);
 
-    res.json(movie.data);
+    res.json(tvshow.data);
   } catch (error) {
     next(error);
   }
@@ -36,8 +35,8 @@ router.get("/:id", async (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
   try {
-    const newMovie = await Movie.create(req.body);
-    res.json(newMovie);
+    const newTVshow = await TVshow.create(req.body);
+    res.json(newTVshow);
   } catch (error) {
     next(error);
   }
@@ -45,8 +44,8 @@ router.post("/", async (req, res, next) => {
 
 router.delete("/:id", async (req, res, next) => {
   try {
-    const movie = await Movie.findByPk(req.params.id);
-    await movie.destroy();
+    const tvshow = await TVshow.findByPk(req.params.id);
+    await tvshow.destroy();
     res.sendStatus(204);
   } catch (error) {
     next(error);
