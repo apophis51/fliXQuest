@@ -5,7 +5,7 @@ export const fetchSingleMovie = createAsyncThunk(
   "singleMovie/fetchSingleMovie",
   async (movieId) => {
     try {
-      const response = await axios.get(`/api/movies/${movieId}`);
+      const response = await axios.get(`/api/movies/single/${movieId}`);
       return response.data;
     } catch (error) {
       console.log("Error fetching movie: ", error);
