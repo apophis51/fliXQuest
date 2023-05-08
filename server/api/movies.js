@@ -5,6 +5,7 @@ const Movie = require("../db/models/Movies");
 
 dotenv.config();
 
+
 router.get("/", async (req, res, next) => {
   try {
     const apiKey = process.env.api_key;
@@ -23,9 +24,10 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const apiKey = process.env.api_key;
-    const movie = await axios.get(
-      `${process.env.REACT_APP_BASE_URL}/movie/${req.params.id}?api_key=${apiKey}`
-    );
+    console.log(apiKey)
+   
+    const movie = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.api_key}&query=${req.params.id}`);
+
     console.log(movie.data);
 
     res.json(movie.data);
