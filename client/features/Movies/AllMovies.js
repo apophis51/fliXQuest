@@ -46,11 +46,14 @@ const AllMovies = () => {
             <div className="movies" key={movie.id}>
               <Link to={`/movies/${movie.id}`}>
                 <div className="inner-box">
+                <div className="show-name">
                   <img
                     className="movie-poster"
                     src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                     alt={movie.title}
                   />
+                  <div className="name">{movie.title}</div>
+                  </div>
                   <div className="rank-star">
                   <img
                         className="star"

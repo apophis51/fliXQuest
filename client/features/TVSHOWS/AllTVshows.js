@@ -33,19 +33,42 @@ const AllTVshows = () => {
   }
 
   return (
-    <div>
-      <div className="AllTVshows">
+    <div className="movies-container">
+      <p className="page-title">All Movies</p>
+      <div className="categories">
+        {/* <p>Title</p> */}
+        {/* <p className="text">Ranking</p> */}
+        <p id="release-date" className="text">Release Date</p>
+        </div>
+        <div className="AllMovies">
+      <div className="inner-container">
         {tvshows.map((tvshow) => (
-          <div key={tvshow.id}>
+          <div className="movies" key={tvshow.id}>
             <Link to={`/tvshows/${tvshow.id}`}>
+            <div className="inner-box">
+              <div className="show-name">
               <img
+              className="movie-poster"
                 src={`https://image.tmdb.org/t/p/w500${tvshow.poster_path}`}
                 alt={tvshow.name}
               />
-              <div>{tvshow.name}</div>
+              <div className="name">{tvshow.name}</div>
+              </div>
+            <div className="rank-star">
+                  <img
+                        className="star"
+                        src="https://www.supercoloring.com/sites/default/files/styles/drawing_full/public/fif/2017/05/gold-star-paper-craft.png"
+                      ></img>
+                    <p className="text">
+                      {tvshow.vote_average}
+                    </p>
+                    </div>
+                    <p className="text">{tvshow.first_air_date}</p>
+              </div>
             </Link>
           </div>
         ))}
+        </div>
       </div>
     </div>
   );
