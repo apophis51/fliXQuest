@@ -26,14 +26,26 @@ const SingleMovie = () => {
   const genres = movie.genres.map((genre) => genre.name).join(", ");
 
   return (
-    <div className="single-movie">
-      <h1>{movie.title}</h1>
-      {/* Update the image src with the correct URL */}
-      <img src={imageUrl} alt={movie.title} />
-      <p>{movie.overview}</p>
-      <p>Release Date: {movie.release_date}</p>
-      <p>Genres: {genres}</p>
-      <p>Rating: {movie.vote_average}</p>
+    <div className="single-container">
+      <div className="single-movie">
+        <div className="card">
+          <div className="single-title-box">
+            <p className="single-movie-title">{movie.title}</p>
+          </div>
+          {/* Update the image src with the correct URL */}
+          <img className="single-poster" src={imageUrl} alt={movie.title} />
+          <p className="genres">{genres.split(",")}</p>
+          <p className="text">{movie.overview}</p>
+          <p className="text">Release Date: {movie.release_date}</p>
+          <div className="rank-star">
+            <img
+              className="star"
+              src="https://www.supercoloring.com/sites/default/files/styles/drawing_full/public/fif/2017/05/gold-star-paper-craft.png"
+            />
+            <p className="text">{movie.vote_average}/10</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
