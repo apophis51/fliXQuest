@@ -102,9 +102,17 @@ form div {
 }
 
 .movie-poster{
-  height: 160px;
-  width: 110px;
+  height: 300px;
+  width: 220px;
   border-radius: 15px;
+  top:-50px;
+left:-35px;
+display:block;
+z-index:999;
+cursor: pointer;
+-webkit-transition-property: all;
+-webkit-transition-duration: 0.3s;
+-webkit-transition-timing-function: ease;
 }
 
 .title{
@@ -121,7 +129,8 @@ form div {
   border: solid black 2px;
   border-radius: 15px;
   padding: 20px;
-  width: 100%;
+  width: 260px;
+  height: 370px;
   padding-left: 0;
 }
 
@@ -134,8 +143,8 @@ form div {
 
 .inner-box{
   display: flex;
+  justify-content:center;
   align-items: center;
-  justify-content: space-between;
 }
 
 .star{
@@ -146,6 +155,9 @@ form div {
 
 .rank-star{
   display: flex;
+  position: absolute;
+  padding-left: 180px;
+  padding-top: 215px;
 }
 
 .movies-container{
@@ -169,12 +181,13 @@ form div {
   flex-direction: column;
   align-items: center;
   padding-left: 20px;
+
 }
 
 .name{
   color: white;
   font-size: smaller;
-  max-width: 110px;
+  max-width: 175px;
 }
 
 .single-poster{
@@ -222,6 +235,7 @@ form div {
 .home-link{
   color: white;
 }
+
 
 
 
