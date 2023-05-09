@@ -2,6 +2,7 @@ const router = require('express').Router()
 const { models: { User }} = require('../db')
 module.exports = router
 
+// o: protect this route or remove if not going to be used
 router.get('/', async (req, res, next) => {
   try {
     const users = await User.findAll({

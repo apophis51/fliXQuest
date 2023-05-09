@@ -13,6 +13,7 @@ const AllTVshows = () => {
     dispatch(fetchAllTVshows());
   }, [dispatch]);
 
+  // o: ahem*
   if (status === "loading") {
     return <div>Loading...</div>;
   }

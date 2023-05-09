@@ -5,6 +5,8 @@ const TVshow = require("../db/models/TVSHOWS");
 
 dotenv.config();
 
+// o: this file doesn't need to be all caps
+
 router.get("/", async (req, res, next) => {
   try {
     const apiKey = process.env.api_key;
@@ -36,7 +38,7 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-
+// o: please remove code and continue working on branch if necessary
 // router.post("/", async (req, res, next) => {
 //   try {
 //     const newTVshow = await TVshow.create(req.body);

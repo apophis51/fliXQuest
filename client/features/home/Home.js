@@ -12,6 +12,7 @@ const Home = (props) => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const genres = useSelector((state) => state.genres);
+  // o: umm... is this working?
   const featuredMovies = useSelector((state) => state.featured?.movies);
   const featuredTVShows = useSelector((state) => state.featured?.tvShows);
 

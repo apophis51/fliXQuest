@@ -31,6 +31,7 @@ const Navbar = () => {
   return (
     <div>
       <nav className="nav">
+        {/* o: might be better to separate this into LoggedInNavbar and LoggedOutNavbar */}
         {isLoggedIn ? (
           <div className="container">
             <div className="img">

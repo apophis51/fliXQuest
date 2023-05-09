@@ -57,6 +57,7 @@ const AllMoviesSlice = createSlice({
   name: "movies",
   initialState: {
     movies: [],
+    // o: I find setting this to a "null" string quite comical
     status: "null",
     error: null,
   },

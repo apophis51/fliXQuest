@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchSingleMovie, selectSingleMovie } from "./SingleMovieSlice";
 import { useParams } from "react-router-dom";
 
+// o: why is this file nested within Movies?
+
 const SingleMovie = () => {
   const dispatch = useDispatch();
   const { id } = useParams();

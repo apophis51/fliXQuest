@@ -15,6 +15,7 @@ const SearchResults = () => {
     dispatch(fetchMovieById(movieQuery))
   }, [dispatch]);
 
+  // o: this strategy is not ideal
   if (status === "loading") {
     return <div>Loading...</div>;
   }
@@ -23,6 +24,7 @@ const SearchResults = () => {
     return <div>Error: {error}</div>;
   }
 
+  // o: if this is being done in multiple places then make this into a function
   const movies =
     moviesResponse && moviesResponse.results
       ? moviesResponse.results

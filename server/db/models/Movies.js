@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
 
+// o: this is going away
 const Movie = db.define('movie', {
     title: {
         type: Sequelize.STRING,
@@ -30,6 +31,7 @@ const Movie = db.define('movie', {
             notEmpty: true,
         },
     },
+    // o: sometimes its good to limit the genres
     genres: {
         type: Sequelize.STRING,
         allowNull: false,

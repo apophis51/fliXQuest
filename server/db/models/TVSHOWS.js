@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
 
+// o: this is going away
 const TVshow = db.define('tvshow', {
     title: {
         type: Sequelize.STRING,

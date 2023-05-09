@@ -20,6 +20,7 @@ const AppRoutes = () => {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/searchresults" element={<SearchResults />} />
+        {/* o: the routes that are the same when logged in or out should be placed above */}
         {isLoggedIn ? (
           <>
             <Route exact path="/home" element={<Home />} />

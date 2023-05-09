@@ -13,6 +13,8 @@ const AllMovies = () => {
     dispatch(fetchAllMovies());
   }, [dispatch]);
 
+  // o: this is not the right approach for this behavior
+  // o: maybe make the following code that is reused often into a function
   if (status === "loading") {
     return <div>Loading...</div>;
   }
@@ -21,6 +23,8 @@ const AllMovies = () => {
     return <div>Error: {error}</div>;
   }
 
+  // o: what is this doing?
+  // o: why is this named movieResponse?
   const movies =
     moviesResponse && moviesResponse.results
       ? moviesResponse.results
@@ -28,6 +32,7 @@ const AllMovies = () => {
           .slice(0, 20)
       : [];
 
+  // o: where is the instance where movies is not an array?
   if (!Array.isArray(movies) || movies.length === 0) {
     return <div>No movies found.</div>;
   }
