@@ -1,48 +1,78 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchAllMovies, fetchMovieById } from "../Movies/AllMoviesSlice";
+import { Link } from "react-router-dom";
 
 const SearchResults = () => {
-  const location = useLocation();
-  const [searchResults, setSearchResults] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  const fetchSearchResults = async (query) => {
-    setLoading(true);
-    const searchTypes = ["movie", "tv"];
-    const results = await Promise.all(
-      searchTypes.map(async (searchType) => {
-        const response = await fetch(`/api/${searchType}/search/${query}`);
-        const data = await response.json();
-        return data;
-      })
-    );
-    setSearchResults(results.flat());
-    setLoading(false);
-  };
+  const dispatch = useDispatch();
+  const moviesResponse = useSelector((state) => state.AllMovies.movies);
+  const status = useSelector((state) => state.AllMovies.status);
+  const error = useSelector((state) => state.AllMovies.error);
+  const movieQuery = useSelector((state) => state.Navbar.movieQuery);
 
   useEffect(() => {
-    const params = new URLSearchParams(location.search);
-    const query = params.get("query");
-    if (query) {
-      fetchSearchResults(query);
-    }
-  }, [location]);
+    // dispatch(fetchAllMovies());
+    dispatch(fetchMovieById(movieQuery))
+  }, [dispatch]);
+
+  if (status === "loading") {
+    return <div>Loading...</div>;
+  }
+
+  if (status === "failed") {
+    return <div>Error: {error}</div>;
+  }
+
+  const movies =
+    moviesResponse && moviesResponse.results
+      ? moviesResponse.results
+          .filter((movie) => movie.title !== "Undefined")
+          .slice(0, 20)
+      : [];
+
+  if (!Array.isArray(movies) || movies.length === 0) {
+    return <div>No movies found.</div>;
+  }
 
   return (
-    <div>
-      <h1>Search Results</h1>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <div>
-          {searchResults.map((result, index) => (
-            <div key={index}>
-              <h2>{result.title || result.name}</h2>
-              <p>{result.overview}</p>
+    <div className="movies-container">
+      <p className="page-title">All Movies</p>
+      <div className="categories">
+        {/* <p>Title</p> */}
+        {/* <p className="text">Ranking</p> */}
+        <p id="release-date" className="text">Release Date</p>
+      </div>
+      <div className="AllMovies">
+        <div className="inner-container">
+          {movies.map((movie) => (
+            <div className="movies" key={movie.id}>
+              <Link to={`/movies/${movie.id}`}>
+                <div className="inner-box">
+                <div className="show-name">
+                  <img
+                    className="movie-poster"
+                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                    alt={movie.title}
+                  />
+                  <div className="name">{movie.title}</div>
+                  </div>
+                  <div className="rank-star">
+                  <img
+                        className="star"
+                        src="https://www.supercoloring.com/sites/default/files/styles/drawing_full/public/fif/2017/05/gold-star-paper-craft.png"
+                      ></img>
+                    <p className="text">
+                      {movie.vote_average}
+                    </p>
+                    </div>
+                    <p className="text">{movie.release_date}</p>
+
+                </div>
+              </Link>
             </div>
           ))}
         </div>
-      )}
+      </div>
     </div>
   );
 };

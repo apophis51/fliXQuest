@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
 // Thunk for fetching search results
 export const fetchSearchResults = createAsyncThunk(
   "navbar/fetchSearchResults",
@@ -17,15 +16,19 @@ export const fetchSearchResults = createAsyncThunk(
     return searchResults;
   }
 );
-
 const navbarSlice = createSlice({
   name: "navbar",
   initialState: {
     searchResults: [],
+    movieQuery: "",
     status: "idle",
     error: null,
   },
-  reducers: {},
+  reducers: {
+    movieQuery: (state, action) => {
+      state.movieQuery = action.payload
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchSearchResults.pending, (state) => {
@@ -41,5 +44,7 @@ const navbarSlice = createSlice({
       });
   },
 });
+
+export const { movieQuery } = navbarSlice.actions;
 
 export default navbarSlice.reducer;
