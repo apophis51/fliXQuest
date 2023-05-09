@@ -2,25 +2,31 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
+import { movieQuery } from "./NavbarSlice";
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const [searchInput, setSearchInput] = useState("");
-
   const handleSearchInputChange = (event) => {
+    console.log(event.target.value)  //delete this line when done troubleshooting
+    dispatch(movieQuery(event.target.value));  //edit this line
     setSearchInput(event.target.value);
   };
-
   useEffect(() => {
-    }, [searchInput]);
-
+  }, [searchInput]);
   const logoutAndRedirectHome = () => {
     dispatch(logout());
     navigate("/login");
   };
+  ///////////////////////////////////////////////delete this line when done troubleshooting
+  const handleSearch = (event) => {
+    event.preventDefault();
+      navigate(`/searchresults`);
+  };
+////////////////////////////////////////////////delete this line when done troubleshooting
+
 
   return (
     <div>
@@ -44,12 +50,17 @@ const Navbar = () => {
                 <Link to="/CastCrew">Cast/Crew</Link>
               </div>
             </div>
-            <input
-              type="text"
-              value={searchInput}
-              onChange={handleSearchInputChange}
-              placeholder="Search.."
-            />
+            <form onSubmit={handleSearch}>
+              <input
+                type="text"
+                value={searchInput}
+                onChange={handleSearchInputChange}
+                placeholder="Search.."
+              />
+              <button type="submit">
+                Search
+              </button>
+            </form>
             <button type="button" onClick={logoutAndRedirectHome}>
               Logout
             </button>
@@ -73,13 +84,16 @@ const Navbar = () => {
                 <Link to="/CastCrew">Cast/Crew</Link>
               </div>
             </div>
-            <input
-              className="search"
-              type="text"
-              value={searchInput}
-              onChange={handleSearchInputChange}
-              placeholder="Search.."
-            />
+            <form onSubmit={handleSearch}>
+              <input
+                className="search"
+                type="text"
+                value={searchInput}
+                onChange={handleSearchInputChange}
+                placeholder="Search.."
+              />
+          
+            </form>
             <Link className="links" to="/login">
               Login
             </Link>
@@ -93,5 +107,4 @@ const Navbar = () => {
     </div>
   );
 };
-
 export default Navbar;
