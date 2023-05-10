@@ -18,7 +18,9 @@ export const fetchMovieById = createAsyncThunk(
   "movies/fetchMovieById",
   async (movieId) => {
     try {
+      movieId.replace(/ /g, '+')
       const response = await axios.get(`/api/movies/${movieId}`);
+
       return response.data;
     } catch (error) {
       console.log("Error fetching movie: ", error);

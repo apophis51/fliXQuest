@@ -30,10 +30,17 @@ const SearchResults = () => {
           .slice(0, 20)
       : [];
 
-  if (!Array.isArray(movies) || movies.length === 0) {
-    return <div>No movies found.</div>;
-  }
-
+  // if (!Array.isArray(movies) || movies.length === 0) {
+  //   return <div>No movies found.</div>;
+  // }
+  if (movies.length ==0){
+  console.log(movies.length)  
+  return (
+    <div className="movies-container">
+      <p className="page-title">No movies found.</p>
+    </div>
+  );
+  } 
   return (
     <div className="movies-container">
       <p className="page-title">All Movies</p>
@@ -78,3 +85,4 @@ const SearchResults = () => {
 };
 
 export default SearchResults;
+

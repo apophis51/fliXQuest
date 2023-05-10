@@ -37,7 +37,7 @@ const AllMovies = () => {
       <p className="page-title">All Movies</p>
       <div className="categories">
         {/* <p>Title</p> */}
-        {/* <p className="text">Ranking</p> */}
+        <p className="text">Ranking</p>
         <p id="release-date" className="text">Release Date</p>
       </div>
       <div className="AllMovies">
