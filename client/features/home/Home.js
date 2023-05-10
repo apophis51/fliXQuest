@@ -25,6 +25,7 @@ const Home = (props) => {
 
   return (
     <div>
+
       <h3>Welcome, {username}</h3>
       <div>
         {genres &&
@@ -42,18 +43,19 @@ const Home = (props) => {
       </div>
       <h4>Featured Movies Today</h4>
       <ul>
+
         {featuredMovies &&
           featuredMovies.map((movie) => <li key={movie.id}>{movie.title}</li>)}
       </ul>
-      <h4>Featured TV Shows Today</h4>
-      <ul>
+      <h4 className="text">Featured TV Shows Today</h4>
+      <ul className="text">
         {featuredTVShows &&
           featuredTVShows.map((show) => <li key={show.id}>{show.title}</li>)}
       </ul>
 
       <div>
-        <Link to="/movies">Movies</Link>
-        <Link to="/tvshows">TV Shows</Link>
+        <Link className="text" to="/movies">Movies</Link>
+        <Link className="text" to="/tvshows">TV Shows</Link>
       </div>
       <div className="genres">
         Browse By Genres

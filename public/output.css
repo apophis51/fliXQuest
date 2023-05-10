@@ -1954,6 +1954,19 @@ html {
   border-radius: 0px;
 }
 
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: var(--navbar-padding, 0.5rem);
+  min-height: 4rem;
+  width: 100%;
+}
+
+:where(.navbar > *) {
+  display: inline-flex;
+  align-items: center;
+}
+
 .btm-nav>* .label {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -2360,6 +2373,7 @@ form div {
   max-width: 110px;
 }
 
+
 /* .movie-container {
         margin: 4px, 4px;
         padding: 4px;
@@ -2368,6 +2382,7 @@ form div {
         overflow: auto;
         white-space: nowrap;
     } */
+
 
 .tag {
   display: inline-block;

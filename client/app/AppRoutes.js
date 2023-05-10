@@ -7,20 +7,19 @@ import AllMovies from "../features/Movies/AllMovies";
 import AllTVshows from "../features/TVSHOWS/AllTVshows";
 import SingleMovie from "../features/Movies/SingleMovie/SingleMovie";
 import SingleTVshow from "../features/TVSHOWS/SingleTVshows/SingleTVshow";
+import SearchResults from "../features/SearchResults/SearchResults";
 import { me } from "./store";
-
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(me());
   }, [dispatch]);
-
   return (
     <div>
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route exact path="/searchresults" element={<SearchResults />} />
         {isLoggedIn ? (
           <>
             <Route exact path="/home" element={<Home />} />
@@ -51,11 +50,11 @@ const AppRoutes = () => {
             <Route exact path="/movies/:id" element={<SingleMovie />} />
             <Route exact path="/tvshows" element={<AllTVshows />} />
             <Route exact path="/tvshows/:id" element={<SingleTVshow />} />
+            <Route exact path="/searchresults" element={<SearchResults />} />
           </>
         )}
       </Routes>
     </div>
   );
 };
-
 export default AppRoutes;

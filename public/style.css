@@ -182,6 +182,7 @@ form div {
   max-width: 110px;
 }
 
+
 /* .movie-container {
         margin: 4px, 4px;
         padding: 4px;
@@ -190,6 +191,54 @@ form div {
         overflow: auto;
         white-space: nowrap;
     } */
+
+.single-poster{
+  height: 270px;
+  width: 200px;
+  border-radius: 15px;
+}
+
+.single-container{
+  background-color: black;
+  padding: 50px;
+  height: 100%;
+}
+
+.single-movie{
+  background-image: linear-gradient(to right, rgb(71, 70, 70) , rgb(110, 110, 110), rgb(71, 70, 70));
+  border-radius: 15px;
+}
+
+.card{
+  padding: 20px;
+}
+
+.single-poster{
+  border-radius: 15px;
+}
+
+.single-title-box{
+  padding-left: 10px;
+  padding-bottom: 2px;
+}
+
+.single-movie-title{
+  color: white;
+  font-size: 35px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.genres{
+  color: white;
+  border: solid black 1px;
+  border-radius: 15px;
+}
+
+.home-link{
+  color: white;
+}
+
+
 
 .tag {
   display: inline-block;
