@@ -1789,6 +1789,57 @@ html {
   }
 }
 
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--rounded-box, 1rem);
+}
+
+.card:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.card figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card.image-full {
+  display: grid;
+}
+
+.card.image-full:before {
+  position: relative;
+  content: "";
+  z-index: 10;
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--n) / var(--tw-bg-opacity));
+  opacity: 0.75;
+  border-radius: var(--rounded-box, 1rem);
+}
+
+.card.image-full:before,
+    .card.image-full > * {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+
+.card.image-full > figure img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card.image-full > .card-body {
+  position: relative;
+  z-index: 20;
+  --tw-text-opacity: 1;
+  color: hsl(var(--nc) / var(--tw-text-opacity));
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
@@ -1939,6 +1990,44 @@ html {
   }
 }
 
+.card :where(figure:first-child) {
+  overflow: hidden;
+  border-start-start-radius: inherit;
+  border-start-end-radius: inherit;
+  border-end-start-radius: unset;
+  border-end-end-radius: unset;
+}
+
+.card :where(figure:last-child) {
+  overflow: hidden;
+  border-start-start-radius: unset;
+  border-start-end-radius: unset;
+  border-end-start-radius: inherit;
+  border-end-end-radius: inherit;
+}
+
+.card:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.card.bordered {
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--b2, var(--b1)) / var(--tw-border-opacity));
+}
+
+.card.compact .card-body {
+  padding: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.card.image-full :where(figure) {
+  overflow: hidden;
+  border-radius: inherit;
+}
+
 @keyframes checkmark {
   0% {
     background-position-y: 5px;
@@ -1997,12 +2086,6 @@ html {
   --tw-placeholder-opacity: 0.2;
 }
 
-.mockup-phone .display {
-  overflow: hidden;
-  border-radius: 40px;
-  margin-top: -25px;
-}
-
 @keyframes progress-loading {
   50% {
     left: 107%;
@@ -2049,6 +2132,43 @@ html {
   }
 }
 
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.rounded {
+  border-radius: 0.25rem;
+}
+
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
+.bg-blue-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -2062,8 +2182,8 @@ a {
   text-decoration: none;
 }
 
-#login{
-  color:red
+#login {
+  color: red;
 }
 
 label {
@@ -2080,7 +2200,7 @@ form div {
   display: inline-block;
 }
 
-.logo{
+.logo {
   height: 50px;
   width: 50px;
   padding-bottom: 0;
@@ -2088,11 +2208,11 @@ form div {
   padding-top: 5px;
 }
 
-.links{
+.links {
   color: white;
 }
 
-.container{
+.container {
   display: flex;
   justify-content: space-evenly;
   background-color: black;
@@ -2120,7 +2240,7 @@ form div {
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -2151,7 +2271,7 @@ form div {
   background-color: rgb(197, 183, 30);
 }
 
-.search{
+.search {
   width: 50%;
   border: solid black 1px;
   border-radius: 15px;
@@ -2160,25 +2280,25 @@ form div {
   margin-bottom: 2px;
 }
 
-.nav{
+.nav {
   background-color: black;
 }
 
-.movie-poster{
+.movie-poster {
   height: 160px;
   width: 110px;
   border-radius: 15px;
 }
 
-.title{
+.title {
   padding: 20px;
 }
 
-.inner-container{
+.inner-container {
   margin: 10px;
 }
 
-.movies{
+.movies {
   padding-bottom: 10px;
   background-color: rgb(70, 65, 65);
   border: solid black 2px;
@@ -2188,62 +2308,140 @@ form div {
   padding-left: 0;
 }
 
-.page-title{
+.page-title {
   padding: 15px;
   font-size: 2em;
   color: rgb(228, 127, 26);
   text-decoration: underline;
 }
 
-.inner-box{
+.inner-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.star{
+.star {
   width: 25px;
   height: 25px;
   padding-right: 5px;
 }
 
-.rank-star{
+.rank-star {
   display: flex;
 }
 
-.movies-container{
+.movies-container {
   height: 90%;
   width: 75%;
   padding-left: 200px;
 }
 
-.text{
+.text {
   color: white;
 }
 
-.categories{
+.categories {
   display: flex;
-  justify-content:end;
+  justify-content: end;
   margin-right: 20px;
 }
 
-.show-name{
+.show-name {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-left: 20px;
 }
 
-.name{
+.name {
   color: white;
   font-size: smaller;
   max-width: 110px;
 }
 
+/* .movie-container {
+        margin: 4px, 4px;
+        padding: 4px;
+        background-color: #595959;
+        width: 300px;
+        overflow: auto;
+        white-space: nowrap;
+    } */
 
+.tag {
+  display: inline-block;
+  margin: 10px 10px 0 0;
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #cb6200;
+  border-radius: 20px;
+  cursor: pointer;
+}
 
+.tag.highlight {
+  background-color: #1976d2;
+}
 
+.tag.clear {
+  background-color: #f44336;
+}
 
+.tag.clear:hover {
+  background-color: #d32f2f;
+}
 
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
+.movie {
+  margin: 20px;
+  max-width: 185px;
+  position: relative;
+}
 
+.movie img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.movie-info {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.vote-average {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  color: rgb(213, 196, 0);
+}
+
+.overview {
+  position: absolute;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.movie:hover .overview {
+  opacity: 1;
+}
+
+.hover\:bg-blue-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+}
