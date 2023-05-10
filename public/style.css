@@ -10,8 +10,8 @@ body {
 a {
   text-decoration: none;
 }
-#login{
-  color:red
+#login {
+  color: red;
 }
 
 label {
@@ -28,7 +28,7 @@ form div {
   display: inline-block;
 }
 
-.logo{
+.logo {
   height: 50px;
   width: 50px;
   padding-bottom: 0;
@@ -36,11 +36,11 @@ form div {
   padding-top: 5px;
 }
 
-.links{
+.links {
   color: white;
 }
 
-.container{
+.container {
   display: flex;
   justify-content: space-evenly;
   background-color: black;
@@ -66,7 +66,7 @@ form div {
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -79,43 +79,48 @@ form div {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: rgb(197, 183, 30);}
+.dropdown:hover .dropbtn {
+  background-color: rgb(197, 183, 30);
+}
 
-.search{
+.search {
   width: 50%;
   border: solid black 1px;
   border-radius: 15px;
   padding-left: 5px;
   margin-top: 2px;
   margin-bottom: 2px;
-
 }
 
-.nav{
+.nav {
   background-color: black;
 }
 
-.movie-poster{
+.movie-poster {
   height: 160px;
   width: 110px;
   border-radius: 15px;
 }
 
-.title{
+.title {
   padding: 20px;
 }
 
-.inner-container{
+.inner-container {
   margin: 10px;
 }
 
-.movies{
+.movies {
   padding-bottom: 10px;
   background-color: rgb(70, 65, 65);
   border: solid black 2px;
@@ -125,57 +130,67 @@ form div {
   padding-left: 0;
 }
 
-.page-title{
+.page-title {
   padding: 15px;
   font-size: 2em;
   color: rgb(228, 127, 26);
   text-decoration: underline;
 }
 
-.inner-box{
+.inner-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.star{
+.star {
   width: 25px;
   height: 25px;
   padding-right: 5px;
 }
 
-.rank-star{
+.rank-star {
   display: flex;
 }
 
-.movies-container{
+.movies-container {
   height: 90%;
   width: 75%;
   padding-left: 200px;
 }
 
-.text{
+.text {
   color: white;
 }
 
-.categories{
+.categories {
   display: flex;
-  justify-content:end;
+  justify-content: end;
   margin-right: 20px;
 }
 
-.show-name{
+.show-name {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-left: 20px;
 }
 
-.name{
+.name {
   color: white;
   font-size: smaller;
   max-width: 110px;
 }
+
+
+/* .movie-container {
+        margin: 4px, 4px;
+        padding: 4px;
+        background-color: #595959;
+        width: 300px;
+        overflow: auto;
+        white-space: nowrap;
+    } */
 
 .single-poster{
   height: 270px;
@@ -225,8 +240,74 @@ form div {
 
 
 
+.tag {
+  display: inline-block;
+  margin: 10px 10px 0 0;
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #cb6200;
+  border-radius: 20px;
+  cursor: pointer;
+}
 
+.tag.highlight {
+  background-color: #1976d2;
+}
 
+.tag.clear {
+  background-color: #f44336;
+}
 
+.tag.clear:hover {
+  background-color: #d32f2f;
+}
 
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
+.movie {
+  margin: 20px;
+  max-width: 185px;
+  position: relative;
+}
+
+.movie img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.movie-info {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.vote-average {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  color: rgb(213, 196, 0);
+}
+
+.overview {
+  position: absolute;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.movie:hover .overview {
+  opacity: 1;
+}
