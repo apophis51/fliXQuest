@@ -2,9 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+.body {
   font-family: sans-serif;
   background-color: black;
+  height: 5000px;
 }
 
 a {
@@ -94,11 +95,13 @@ form div {
 }
 
 .search {
-  width: 50%;
+  width: 350px;
+  height: auto;
   border: solid black 1px;
   border-radius: 15px;
+  padding-top: 15px;
   padding-left: 5px;
-  margin-top: 2px;
+  margin-top: 7px;
   margin-bottom: 2px;
 }
 
@@ -107,8 +110,8 @@ form div {
 }
 
 .movie-poster {
-  height: 160px;
-  width: 110px;
+  height: 280px;
+  width: 200px;
   border-radius: 15px;
 }
 
@@ -151,6 +154,7 @@ form div {
 
 .rank-star {
   display: flex;
+  margin-top: 15px;
 }
 
 .movies-container {
@@ -182,16 +186,6 @@ form div {
   max-width: 110px;
 }
 
-
-/* .movie-container {
-        margin: 4px, 4px;
-        padding: 4px;
-        background-color: #595959;
-        width: 300px;
-        overflow: auto;
-        white-space: nowrap;
-    } */
-
 .single-poster{
   height: 270px;
   width: 200px;
@@ -215,6 +209,8 @@ form div {
 
 .single-poster{
   border-radius: 15px;
+  width: 300px;
+  height: 400px;
 }
 
 .single-title-box{
@@ -311,3 +307,41 @@ form div {
 .movie:hover .overview {
   opacity: 1;
 }
+
+.genre-name{
+  border: black solid 1px;
+}
+
+.genre-bubble{
+  border: solid black 1px;
+  border-radius: 15px;
+  width: fit-content;
+  padding: 5px;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.genre-container{
+  display: flex;
+}
+
+.poster-genre-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+}
+
+#overview{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.tags{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+
