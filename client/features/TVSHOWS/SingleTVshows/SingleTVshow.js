@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleTVshow, selectSingleTVshow } from "./SingleTVshowSlice";
 import { useParams } from "react-router-dom";
@@ -6,41 +6,50 @@ import { useParams } from "react-router-dom";
 const SingleTVshow = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const { tvshow, error } = useSelector((state) => state.SingleTVshow);
-  const [loading, setLoading] = useState(true);
+  const { tvshow, loading, error } = useSelector((state) => state.SingleTVshow);
 
   useEffect(() => {
-    dispatch(fetchSingleTVshow(id)).then(() => setLoading(false));
+    dispatch(fetchSingleTVshow(id));
   }, [dispatch, id]);
-
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Loading TV Show Information...</div>;
   }
-
-  if (!tvshow) {
-    return <div>Something went wrong...</div>;
+  if (error || !tvshow) {
+    return <div>Error loading TV show information.</div>;
   }
-
-  const imageUrl = tvshow.poster_path
-    ? `https://image.tmdb.org/t/p/w500${tvshow.poster_path}`
-    : null;
-
-  const genres = tvshow.genres.map((genre) => genre.name).join(", ");
+  const imageUrl = `https://image.tmdb.org/t/p/w500${tvshow.poster_path}`;
 
   return (
-    <div className="single-tvshow">
-      <h1>{tvshow.title}</h1>
-      {imageUrl ? (
-        <img src={imageUrl} alt={tvshow.title} />
-      ) : (
-        <div>No image available</div>
-      )}
-      <p>{tvshow.overview}</p>
-      <p>Release Date: {tvshow.release_date}</p>
-      <p>Genres: {genres}</p>
-      <p>Rating: {tvshow.vote_average}</p>
+    <div className="single-container">
+      <div className="single-movie">
+        <div className="card">
+          <div className="single-title-box">
+            <p className="single-movie-title">{tvshow.name}</p>
+          </div>
+          <div className="poster-genre-container">
+            <img className="single-poster" src={imageUrl} alt={tvshow.name} />
+            <div className="genre-container">
+              {tvshow.genres.map((genre) => (
+                <div className="genre-bubble2">
+                <div>{genre.name}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <p id="overview" className="text">
+            {tvshow.overview}
+          </p>
+          <p className="text">First Aired - {tvshow.first_air_date}</p>
+          <div className="rank-star">
+            <img
+              className="star"
+              src="https://www.supercoloring.com/sites/default/files/styles/drawing_full/public/fif/2017/05/gold-star-paper-craft.png"
+            />
+            <p className="text">{tvshow.vote_average}/10</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
-
 export default SingleTVshow;

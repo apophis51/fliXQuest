@@ -78,7 +78,7 @@ const AllTVshows = () => {
             id={"item" + num++}
             key={tvshow.id}
           >
-            <Link to={`/movies/${tvshow.id}`}>
+            <Link to={`/tvshows/${tvshow.id}`}>
               <div className="inner-box">
                 <div className="show-name">
                   <img

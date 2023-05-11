@@ -2612,6 +2612,16 @@ form div {
   margin-bottom: 15px;
 }
 
+.genre-bubble2{
+  border: solid black 1px;
+  border-radius: 15px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
 .hover\:bg-blue-700:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
