@@ -37,7 +37,14 @@ const AllMovies = () => {
       ? moviesResponse.results
           .filter((movie) => movie.title !== "Undefined")
           .slice(0, 20)
+          .map((movie) => {
+            return {
+              ...movie,
+              overview: movie.overview || "No overview available.",
+            };
+          })
       : [];
+
   if (!Array.isArray(movies) || movies.length === 0) {
     return <div>No movies found.</div>;
   }

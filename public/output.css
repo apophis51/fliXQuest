@@ -2454,51 +2454,57 @@ form div {
   max-width: 110px;
 }
 
-.single-poster{
+.single-poster {
   height: 270px;
   width: 200px;
   border-radius: 15px;
 }
 
-.single-container{
+.single-container {
   background-color: black;
   padding: 50px;
   height: 100%;
 }
 
-.single-movie{
-  background-image: linear-gradient(to right, rgb(71, 70, 70) , rgb(110, 110, 110), rgb(71, 70, 70));
+.single-movie {
+  background-image: linear-gradient(
+    to right,
+    rgb(71, 70, 70),
+    rgb(110, 110, 110),
+    rgb(71, 70, 70)
+  );
   border-radius: 15px;
 }
 
-.card{
+.card {
   padding: 20px;
 }
 
-.single-poster{
+.single-poster {
   border-radius: 15px;
   width: 300px;
   height: 400px;
 }
 
-.single-title-box{
+.single-title-box {
   padding-left: 10px;
   padding-bottom: 2px;
 }
 
-.single-movie-title{
+.single-movie-title {
   color: white;
   font-size: 35px;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
-.genres{
+.genres {
   color: white;
   border: solid black 1px;
   border-radius: 15px;
 }
 
-.home-link{
+.home-link {
   color: white;
 }
 
@@ -2559,10 +2565,10 @@ form div {
 .overview {
   position: absolute;
   overflow: auto;
-  top: 0;
+  top: 30%;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 34%;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
@@ -2574,11 +2580,11 @@ form div {
   opacity: 1;
 }
 
-.genre-name{
+.genre-name {
   border: black solid 1px;
 }
 
-.genre-bubble{
+.genre-bubble {
   border: solid black 1px;
   border-radius: 15px;
   width: -moz-fit-content;
@@ -2588,11 +2594,11 @@ form div {
   margin-right: 5px;
 }
 
-.genre-container{
+.genre-container {
   display: flex;
 }
 
-.poster-genre-container{
+.poster-genre-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2600,12 +2606,12 @@ form div {
   width: fit-content;
 }
 
-#overview{
+#overview {
   margin-top: 15px;
   margin-bottom: 15px;
 }
 
-.tags{
+.tags {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -2616,5 +2622,4 @@ form div {
   --tw-bg-opacity: 1;
   background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
-
 
