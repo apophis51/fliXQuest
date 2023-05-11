@@ -344,4 +344,13 @@ form div {
   margin-bottom: 15px;
 }
 
+.genre-bubble2{
+  border: solid black 1px;
+  border-radius: 15px;
+  width: fit-content;
+  padding: 5px;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
 
