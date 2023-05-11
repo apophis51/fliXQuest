@@ -35,7 +35,6 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-//758323
 router.get("/single/:id", async (req, res, next) => {
   try {
     const apiKey = process.env.api_key;
@@ -50,15 +49,6 @@ router.get("/single/:id", async (req, res, next) => {
   }
 });
 
-
-// router.post("/", async (req, res, next) => {
-//   try {
-//     const newMovie = await Movie.create(req.body);
-//     res.json(newMovie);
-//   } catch (error) {
-//     next(error);
-//   }
-// });
 
 router.delete("/:id", async (req, res, next) => {
   try {

@@ -1,6 +1,9 @@
+const router = require("express").Router();
+
+const axios = require("axios");
+const dotenv = require("dotenv");
 const { Configuration, OpenAIApi } = require("openai");
-// process.env = 
-require('dotenv').config().parsed;
+dotenv.config();
 
 const configuration = new Configuration({
     apiKey: process.env.OPEN_API_KEY
@@ -16,16 +19,22 @@ let searchprompt = `search for a movie that matches the following: ${movieinput}
 Give 5 Suggestions seperated by commas`
 
 
-
-//We need to run this funciton OnClick from the search bar
-async function runCompletion() {
-    const completion = await openai.createCompletion({
+router.get("/:query", async (req, res, next) => {
+  try {
+        const completion = await openai.createCompletion({
         model: "text-davinci-003",
-        prompt: searchprompt
+        // prompt: req.params.query
+        prompt: `find me a movie about ${req.params.query} and give me the title only and no punctuation`
     });
     console.log(completion.data.choices[0].text);
-}
 
-runCompletion();
+    res.json(completion.data.choices[0].text);
+  } catch (error) {
+    next(error);
+  }
+});
 
 
+
+
+module.exports = router;
