@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllMovies } from "./AllMoviesSlice";
 import { Link } from "react-router-dom";
-
 const AllMovies = () => {
   const dispatch = useDispatch();
   const moviesResponse = useSelector((state) => state.AllMovies.movies);
@@ -19,7 +18,6 @@ const AllMovies = () => {
     num2 = currentItemNumber - 3;
     setCurrentItemNumber(num2);
   };
-
 
   let num2 = 3;
 
@@ -97,3 +95,57 @@ const AllMovies = () => {
   );
 };
 export default AllMovies;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

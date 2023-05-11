@@ -17,15 +17,42 @@ export const fetchAllMovies = createAsyncThunk(
 export const fetchMovieById = createAsyncThunk(
   "movies/fetchMovieById",
   async (movieId) => {
-    try {
+      movieId.replace(/ /g, '+')
       const response = await axios.get(`/api/movies/${movieId}`);
+ 
+      console.log("here",response.data.results.length)
+      if(response.data.results.length == undefined || response.data.results.length == 0){
+        console.log("bad")
+        return "bad"
+      }
+      console.log("responding")
       return response.data;
-    } catch (error) {
-      console.log("Error fetching movie: ", error);
-      throw error;
-    }
+
+
   }
 );
+
+export const runGpt = createAsyncThunk(
+  "gpt/fetchMovieById",
+  async (movieQuery) => {
+      const response = await axios.get(`/api/gpt/${movieQuery}`);
+      return response.data
+  }
+);
+
+// export const fetchGpt = createAsyncThunk(
+//   "movies/fetchMovieById",
+//   async (movieQuery) => {
+//     try {
+//       const response = await axios.get(`/api/movies/${movieId}`);
+
+//       return response.data;
+//     } catch (error) {
+//       console.log("Error fetching movie: ", error);
+//       throw error;
+//     }
+//   }
+// );
 
 export const fetchMoviesByGenre = createAsyncThunk(
   "movies/fetchMoviesByGenre",
@@ -44,7 +71,7 @@ export const fetchMoviesBySearch = createAsyncThunk(
   "movies/fetchMoviesBySearch",
   async (searchTerm) => {
     try {
-      const response = await axios.get(`/api/movies/${searchTerm}`);
+      const response = await axios.get(`/api/gpt/${searchTerm}`);
       return response.data;
     } catch (error) {
       console.log("Error fetching movies: ", error);
@@ -57,6 +84,8 @@ const AllMoviesSlice = createSlice({
   name: "movies",
   initialState: {
     movies: [],
+    gptAnswer: "",
+    movieReturn: 0,
     status: "null",
     error: null,
   },
@@ -77,11 +106,25 @@ const AllMoviesSlice = createSlice({
       })
       .addCase(fetchMovieById.pending, (state) => {
         state.status = "loading";
+        state.gptAnswer = "";
         state.error = null;
       })
       .addCase(fetchMovieById.fulfilled, (state, action) => {
         state.status = "succeeded";
+        state.gptAnswer = "";
         state.movies = action.payload;
+        
+      console.log(action.payload)
+        if (action.payload == "bad") {
+          state.movieReturn = 3;
+        }
+        else{
+          state.movieReturn = true;
+        }
+        //  console.log(state.movies.results)
+        // if (state.movies.results.length > 0) {
+        //    state.movieReturn = true;
+        //  }
       })
       .addCase(fetchMovieById.rejected, (state, action) => {
         state.status = "failed";
@@ -109,6 +152,22 @@ const AllMoviesSlice = createSlice({
       })
       .addCase(fetchMoviesBySearch.rejected, (state, action) => {
         state.status = "failed";
+        state.error = action.error.message;
+      })
+      .addCase(runGpt.pending, (state) => {
+        state.status = "loading";
+        state.error = null;
+        state.movieReturn = 5;
+      })
+      .addCase(runGpt.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.movies = action.payload;
+        state.movieReturn = 4;
+        state.gptAnswer = action.payload;
+      })
+      .addCase(runGpt.rejected, (state, action) => {
+        state.status = "failed";
+        state.movieReturn = 5;
         state.error = action.error.message;
       });
   },

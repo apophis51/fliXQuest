@@ -28,7 +28,6 @@ router.get("/:id", async (req, res, next) => {
    
     const movie = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.api_key}&query=${req.params.id}`);
 
-    console.log(movie.data);
 
     res.json(movie.data);
   } catch (error) {
@@ -36,7 +35,6 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-//758323
 router.get("/single/:id", async (req, res, next) => {
   try {
     const apiKey = process.env.api_key;
@@ -44,7 +42,6 @@ router.get("/single/:id", async (req, res, next) => {
    
     const movie = await axios.get(`https://api.themoviedb.org/3/movie/${req.params.id}?api_key=${process.env.api_key}&language=en-US`);
 
-    console.log(movie.data);
 
     res.json(movie.data);
   } catch (error) {
@@ -52,15 +49,6 @@ router.get("/single/:id", async (req, res, next) => {
   }
 });
 
-
-// router.post("/", async (req, res, next) => {
-//   try {
-//     const newMovie = await Movie.create(req.body);
-//     res.json(newMovie);
-//   } catch (error) {
-//     next(error);
-//   }
-// });
 
 router.delete("/:id", async (req, res, next) => {
   try {
