@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchSingleMovie, selectSingleMovie } from "./SingleMovieSlice";
 import { useParams } from "react-router-dom";
+import AllTVshows from "../../TVSHOWS/AllTVshows";
 
 const SingleMovie = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const SingleMovie = () => {
   // Add the base URL for the images
   const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
-  const genres = movie.genres.map((genre) => genre.name).join(", ");
+  // const genres = movie.genres.map((genre) => genre.name).join(", ");
 
   return (
     <div className="single-container">
@@ -32,11 +33,16 @@ const SingleMovie = () => {
           <div className="single-title-box">
             <p className="single-movie-title">{movie.title}</p>
           </div>
-          {/* Update the image src with the correct URL */}
+          <div className="poster-genre-container">
           <img className="single-poster" src={imageUrl} alt={movie.title} />
-          <p className="genres">{genres.split(",")}</p>
-          <p className="text">{movie.overview}</p>
-          <p className="text">Release Date: {movie.release_date}</p>
+          <div className="genre-container">
+          {movie.genres.map((genre) => (
+            <div className="genre-bubble">{genre.name}</div>
+          ))}
+          </div>
+          </div>
+          <p id="overview" className="text">{movie.overview}</p>
+          <p className="text">Released - {movie.release_date}</p>
           <div className="rank-star">
             <img
               className="star"

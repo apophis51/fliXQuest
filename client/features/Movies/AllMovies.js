@@ -8,15 +8,19 @@ const AllMovies = () => {
   const status = useSelector((state) => state.AllMovies.status);
   const error = useSelector((state) => state.AllMovies.error);
   const [currentItemNumber, setCurrentItemNumber] = useState(3);
+
   const handleItemClick = () => {
     num2 = currentItemNumber + 3;
     setCurrentItemNumber(num2);
   };
+
   const handleItemDelete = () => {
     num2 = currentItemNumber - 3;
     setCurrentItemNumber(num2);
   };
+
   let num2 = 3;
+
   useEffect(() => {
     dispatch(fetchAllMovies());
   }, [dispatch]);

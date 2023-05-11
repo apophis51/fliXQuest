@@ -6,19 +6,20 @@ import AllTVshowsSlice from '../features/TVSHOWS/AllTVshowsSlice';
 import SingleMovieSlice from '../features/Movies/SingleMovie/SingleMovieSlice';
 import SingleTVshowSlice from '../features/TVSHOWS/SingleTVshows/SingleTVshowSlice';
 import NavbarSlice from '../features/navbar/NavbarSlice';
-import GenresSlice from '../features/Genres/GenresSlice';
+
+
 
 
 
 const store = configureStore({
-  reducer: { 
+  reducer: {
     auth: authReducer,
     AllMovies: AllMoviesSlice,
     AllTVshows: AllTVshowsSlice,
     SingleMovie: SingleMovieSlice,
     SingleTVshow: SingleTVshowSlice,
     Navbar: NavbarSlice,
-    Genres: GenresSlice,
+
    },
   // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });

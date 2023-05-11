@@ -52,6 +52,7 @@ const Navbar = () => {
             </div>
             <form onSubmit={handleSearch}>
               <input
+              className="search"
                 type="text"
                 value={searchInput}
                 onChange={handleSearchInputChange}
@@ -92,7 +93,7 @@ const Navbar = () => {
                 onChange={handleSearchInputChange}
                 placeholder="Search.."
               />
-          
+
             </form>
             <Link className="links" to="/login">
               Login
