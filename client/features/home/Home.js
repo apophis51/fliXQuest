@@ -58,7 +58,6 @@ const Home = (props) => {
         <Link className="text" to="/tvshows">TV Shows</Link>
       </div>
       <div className="genres">
-        Browse By Genres
         <Genres></Genres>
       </div>
       {/* <div className="movie-container">
