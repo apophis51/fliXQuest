@@ -5,7 +5,7 @@
 .body {
   font-family: sans-serif;
   background-color: black;
-  height: 5000px;
+  height: 825px;
 }
 
 a {
@@ -216,6 +216,8 @@ form div {
 .single-title-box{
   padding-left: 10px;
   padding-bottom: 2px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .single-movie-title{
@@ -352,5 +354,12 @@ form div {
   margin-top: 10px;
   margin-right: 5px;
 }
+
+.x{
+  height: 30px;
+  width: 30px;
+}
+
+
 
 

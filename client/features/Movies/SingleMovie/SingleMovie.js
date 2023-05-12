@@ -9,6 +9,10 @@ const SingleMovie = () => {
   const { id } = useParams();
   const { movie, loading, error } = useSelector((state) => state.SingleMovie);
 
+  const handleBackButtonClick = () => {
+    window.history.back();
+  }
+
   useEffect(() => {
     dispatch(fetchSingleMovie(id));
   }, [dispatch, id]);
@@ -32,6 +36,7 @@ const SingleMovie = () => {
         <div className="card">
           <div className="single-title-box">
             <p className="single-movie-title">{movie.title}</p>
+            <img className="x" src="https://cdn-icons-png.flaticon.com/512/483/483366.png" onClick={handleBackButtonClick}/>
           </div>
           <div className="poster-genre-container">
           <img className="single-poster" src={imageUrl} alt={movie.title} />
