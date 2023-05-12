@@ -82,16 +82,19 @@ const AllMovies = () => {
             key={movie.id}
           >
             <Link to={`/movies/${movie.id}`}>
-              <div className="inner-box">
-                <div className="show-name">
-                  <img
-                    className="movie-poster"
-                    src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                    alt={movie.title}
-                  />
-                  <div className="name">{movie.title}</div>
+              <div key={movie.id} className="movie">
+                <img
+                  src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
+                  alt={movie.title}
+                />
+                <div className="movie-info">
+                  <h3>{movie.title}</h3>
+                  <span className="vote-average">{movie.vote_average}</span>
                 </div>
-                <div className="rank-star"></div>
+                <div className="overview">
+                  <h3>Overview</h3>
+                  {movie.overview}
+                </div>
               </div>
             </Link>
           </div>
