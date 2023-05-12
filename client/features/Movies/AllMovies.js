@@ -34,7 +34,7 @@ const AllMovies = () => {
     moviesResponse && moviesResponse.results
       ? moviesResponse.results
           .filter((movie) => movie.title !== "Undefined")
-          .slice(0, 20)
+          .slice(0, 50)
       : [];
   if (!Array.isArray(movies) || movies.length === 0) {
     return <div>No movies found.</div>;

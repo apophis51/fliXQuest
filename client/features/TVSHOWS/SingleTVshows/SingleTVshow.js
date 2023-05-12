@@ -8,6 +8,10 @@ const SingleTVshow = () => {
   const { id } = useParams();
   const { tvshow, loading, error } = useSelector((state) => state.SingleTVshow);
 
+  const handleBackButtonClick = () => {
+    window.history.back();
+  }
+
   useEffect(() => {
     dispatch(fetchSingleTVshow(id));
   }, [dispatch, id]);
@@ -25,6 +29,7 @@ const SingleTVshow = () => {
         <div className="card">
           <div className="single-title-box">
             <p className="single-movie-title">{tvshow.name}</p>
+            <img className="x" src="https://cdn-icons-png.flaticon.com/512/483/483366.png" onClick={handleBackButtonClick}/>
           </div>
           <div className="poster-genre-container">
             <img className="single-poster" src={imageUrl} alt={tvshow.name} />

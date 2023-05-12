@@ -19,7 +19,7 @@ export const fetchMovieById = createAsyncThunk(
   async (movieId) => {
       movieId.replace(/ /g, '+')
       const response = await axios.get(`/api/movies/${movieId}`);
- 
+
       console.log("here",response.data.results.length)
       if(response.data.results.length == undefined || response.data.results.length == 0){
         console.log("bad")
@@ -39,20 +39,6 @@ export const runGpt = createAsyncThunk(
       return response.data
   }
 );
-
-// export const fetchGpt = createAsyncThunk(
-//   "movies/fetchMovieById",
-//   async (movieQuery) => {
-//     try {
-//       const response = await axios.get(`/api/movies/${movieId}`);
-
-//       return response.data;
-//     } catch (error) {
-//       console.log("Error fetching movie: ", error);
-//       throw error;
-//     }
-//   }
-// );
 
 export const fetchMoviesByGenre = createAsyncThunk(
   "movies/fetchMoviesByGenre",
@@ -113,7 +99,7 @@ const AllMoviesSlice = createSlice({
         state.status = "succeeded";
         state.gptAnswer = "";
         state.movies = action.payload;
-        
+
       console.log(action.payload)
         if (action.payload == "bad") {
           state.movieReturn = 3;
