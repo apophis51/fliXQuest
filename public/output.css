@@ -2567,7 +2567,7 @@ form div {
 .overview {
   position: absolute;
   overflow: auto;
-  top: 0;
+  top: 30%;
   left: 0;
   right: 0;
   bottom: 0;
@@ -2582,11 +2582,11 @@ form div {
   opacity: 1;
 }
 
-.genre-name{
+.genre-name {
   border: black solid 1px;
 }
 
-.genre-bubble{
+.genre-bubble {
   border: solid black 1px;
   border-radius: 15px;
   width: -moz-fit-content;
@@ -2596,11 +2596,11 @@ form div {
   margin-right: 5px;
 }
 
-.genre-container{
+.genre-container {
   display: flex;
 }
 
-.poster-genre-container{
+.poster-genre-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2608,7 +2608,7 @@ form div {
   width: fit-content;
 }
 
-#overview{
+#overview {
   margin-top: 15px;
   margin-bottom: 15px;
 }
