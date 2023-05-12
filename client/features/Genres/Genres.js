@@ -1,19 +1,28 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+
 
 const API_URL =
   "https://api.themoviedb.org/3//discover/movie?sort_by=popularity.desc&api_key=1cf50e6248dc270629e802686245c2c8";
-
 
 function Genres() {
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState([]);
   const [movies, setMovies] = useState([]);
+  // added
+  const [currentItemNumber, setCurrentItemNumber] = useState(1);
+  const [numOfItems, setNumOfItems] = useState(0);
   const tagsEl = useRef(null);
 
   useEffect(() => {
     fetchGenres();
     getMovies(API_URL);
   }, []);
+
+  // added
+  useEffect(() => {
+    setNumOfItems(movies.length);
+  }, [movies]);
 
   function fetchGenres() {
     fetch(
@@ -54,6 +63,19 @@ function Genres() {
     ));
   }
 
+  // added
+  const handleItemClick = () => {
+    num2 = currentItemNumber + 3;
+    setCurrentItemNumber(num2);
+  };
+  // added
+  const handleItemDelete = () => {
+    num2 = currentItemNumber - 3;
+    setCurrentItemNumber(num2);
+  };
+  // added
+  let num2 = 3;
+
   function renderMovies() {
     const filteredMovies =
       selectedGenre.length > 0
@@ -62,27 +84,55 @@ function Genres() {
           )
         : movies;
 
-    return filteredMovies.map((movie) => (
-      <div key={movie.id} className="movie">
-        <img
-          src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
-          alt={movie.title}
-        />
-        <div className="movie-info">
-          <h3>{movie.title}</h3>
-          <span className="vote-average">{movie.vote_average}</span>
+    let num = 0;
+
+
+    return (
+      <div className="home-container">
+        <p className="page-title">Featured Movies:</p>
+        <div className="categories"></div>
+        <div className="AllMovies">
+          <div className="carousel-container">
+            <div className="carousel-items"></div>
+          </div>
         </div>
-        <div className="overview">
-          <h3>Overview</h3>
-          {movie.overview}
+        <div className="carousel rounded-box">
+          {filteredMovies.map((movie) => (
+            <div
+              className="carousel-item inline-flex"
+              id={"item" + num++}
+              key={movie.id}
+            >
+              <Link to={`/movies/${movie.id}`}>
+                <div key={movie.id} className="movie">
+                  <img
+                    src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
+                    alt={movie.title}
+                  />
+                  <div className="movie-info">
+                    <h3>{movie.title}</h3>
+                    <span className="vote-average">{movie.vote_average}</span>
+                  </div>
+                  <div className="overview">
+                    <h3>Overview</h3>
+                    {movie.overview}
+                  </div>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
+        <div id="slide1" className="carousel-item relative w-full">
+          {" "}
         </div>
       </div>
-    ));
+    );
   }
 
   return (
     <div className="MovieApp">
       <div className="tags" ref={tagsEl}>
+        <div>Browse By Genre:</div>
         {renderGenres()}
         {selectedGenre.length > 0 && (
           <div className="tag clear highlight" onClick={clearSelection}>
