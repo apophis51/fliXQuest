@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchSingleMovie, selectSingleMovie } from "./SingleMovieSlice";
 import { useParams } from "react-router-dom";
 import AllTVshows from "../../TVSHOWS/AllTVshows";
+import Map from "../../Map/Map";
 
 const SingleMovie = () => {
   const dispatch = useDispatch();
@@ -52,6 +53,7 @@ const SingleMovie = () => {
           </div>
         </div>
       </div>
+      <Map/>
     </div>
   );
 };
