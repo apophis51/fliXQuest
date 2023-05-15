@@ -10,6 +10,7 @@ const SingleMovie = () => {
   const { movie, loading, error } = useSelector((state) => state.SingleMovie);
 
   const handleBackButtonClick = () => {
+    // o: this is not the way to do this when using react router, import useNavigate from "react-router-dom"
     window.history.back();
   }
 
@@ -17,6 +18,7 @@ const SingleMovie = () => {
     dispatch(fetchSingleMovie(id));
   }, [dispatch, id]);
 
+  // o: this is not changed
   if (loading) {
     return <div>Loading Movie Information...</div>;
   }

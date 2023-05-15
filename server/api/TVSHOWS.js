@@ -2,7 +2,12 @@ const router = require("express").Router();
 const axios = require("axios");
 const dotenv = require("dotenv");
 const TVshow = require("../db/models/TVSHOWS");
+
+// o: I believe you can drop this in your entry point file, and it should
+//  place all your env variables in process.env
 dotenv.config();
+
+// o: get rid of the console logs please, again, stuff on main should not have debug code
 router.get("/", async (req, res, next) => {
   try {
     const apiKey = process.env.api_key;
@@ -17,6 +22,7 @@ router.get("/", async (req, res, next) => {
 });
 router.get("/:id", async (req, res, next) => {
   try {
+    // o: you don't need to set apiKey if you are not using it
     const apiKey = process.env.api_key;
     console.log(apiKey);
     const tvshow = await axios.get(

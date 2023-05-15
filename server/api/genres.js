@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
+// o: why put this outside of the route if its only used in the route
 const genres = [
   {
     id: 28,

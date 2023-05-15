@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchAllMovies, fetchMovieById, runGpt} from "../Movies/AllMoviesSlice";
 import { Link , useNavigate } from "react-router-dom";
 
+// o: remove commented out code
 // import { runCompletion } from "./robotSlice"
 
 const SearchResults = () => {

@@ -12,6 +12,8 @@ const Home = (props) => {
   const genres = useSelector((state) => state.genres);
   const featuredMovies = useSelector((state) => state.featured?.movies);
   const featuredTVShows = useSelector((state) => state.featured?.tvShows);
+
+  // o: this should be taken from redux state
   const [selectedGenre, setSelectedGenre] = useState(null);
 
   useEffect(() => {

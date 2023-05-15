@@ -6,6 +6,7 @@ export const fetchSearchResults = createAsyncThunk(
     const searchTypes = ["movie", "tv"];
     const searchResults = await Promise.all(
       searchTypes.map(async (searchType) => {
+        // o: why not axios?
         const response = await fetch(
           `/api/${searchType}/search/${searchInput}`
         );

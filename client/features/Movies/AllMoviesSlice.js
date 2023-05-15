@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+// o: you don't need try catches in your thunks
 export const fetchAllMovies = createAsyncThunk(
   "movies/fetchAllMovies",
   async () => {

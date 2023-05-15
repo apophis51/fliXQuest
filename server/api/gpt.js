@@ -11,10 +11,14 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 //This movie input represents what would be input from the search bar
+
+// o: this should be a const
 let movieinput = 'a scifi and romance movie'
 ///
 
 //GPT will be following this prompot to generate the results
+
+// o: this is not being used
 let searchprompt = `search for a movie that matches the following: ${movieinput}and give me the movie title by itseslf
 Give 5 Suggestions seperated by commas`
 

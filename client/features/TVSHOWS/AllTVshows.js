@@ -26,6 +26,7 @@ const AllTVshows = () => {
     dispatch(fetchAllTVshows());
   }, [dispatch]);
 
+  // o: this isn't fixed???
   if (status === "loading") {
     return <div>Loading...</div>;
   }

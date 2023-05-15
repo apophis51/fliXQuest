@@ -37,6 +37,7 @@ router.get("/:id", async (req, res, next) => {
 
 router.get("/single/:id", async (req, res, next) => {
   try {
+    // o: stop doing this if you are not going to use it
     const apiKey = process.env.api_key;
     console.log(apiKey)
    

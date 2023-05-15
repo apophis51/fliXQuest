@@ -8,12 +8,16 @@ const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  // o: why not redux here?
   const [searchInput, setSearchInput] = useState("");
   const handleSearchInputChange = (event) => {
+    // o: if its on main, wouldn't you say you are done troubleshooting?
     console.log(event.target.value)  //delete this line when done troubleshooting
     dispatch(movieQuery(event.target.value));  //edit this line
     setSearchInput(event.target.value);
   };
+  // o: this useEffect is not doing anything
   useEffect(() => {
   }, [searchInput]);
   const logoutAndRedirectHome = () => {

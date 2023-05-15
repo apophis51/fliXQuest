@@ -7,6 +7,8 @@ const AllMovies = () => {
   const moviesResponse = useSelector((state) => state.AllMovies.movies);
   const status = useSelector((state) => state.AllMovies.status);
   const error = useSelector((state) => state.AllMovies.error);
+
+  // o: why not redux for this?
   const [currentItemNumber, setCurrentItemNumber] = useState(3);
 
   const handleItemClick = () => {

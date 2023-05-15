@@ -6,6 +6,7 @@ const API_URL =
   "https://api.themoviedb.org/3//discover/movie?sort_by=popularity.desc&api_key=1cf50e6248dc270629e802686245c2c8";
 
 function Genres() {
+  // o: all of this could be done easier in redux
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState([]);
   const [movies, setMovies] = useState([]);
@@ -24,6 +25,7 @@ function Genres() {
     setNumOfItems(movies.length);
   }, [movies]);
 
+    // o: why are these not being done in a thunk in a slice?
   function fetchGenres() {
     fetch(
       "https://api.themoviedb.org/3/genre/movie/list?api_key=1cf50e6248dc270629e802686245c2c8"
@@ -51,6 +53,7 @@ function Genres() {
     setSelectedGenre([]);
   }
 
+  // o: this may be better as a component
   function renderGenres() {
     return genres.map((genre) => (
       <div
@@ -63,6 +66,8 @@ function Genres() {
     ));
   }
 
+
+  // o: remove if not being used
   // added
   const handleItemClick = () => {
     num2 = currentItemNumber + 3;
@@ -76,6 +81,7 @@ function Genres() {
   // added
   let num2 = 3;
 
+  // o: this may be better as a component
   function renderMovies() {
     const filteredMovies =
       selectedGenre.length > 0
