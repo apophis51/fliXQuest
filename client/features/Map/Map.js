@@ -105,6 +105,12 @@ console.log(jsonArray[0])
 let test = JSON.parse('{ "hello":"world" }')
 console.log(test)
 
+// for(let x of jsonArray){
+//   for (let y of x){
+//   console.log(y)
+//   }
+// }
+
   return (
     <div className ="text-white">
     <p>Map</p>
