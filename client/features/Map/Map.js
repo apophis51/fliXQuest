@@ -18,98 +18,24 @@ import { runGpt} from "./MapSlice";
 export const Map = () => {
 
     let moviesLocations = useSelector((state) => state.MapSlice.filmLocations);
+    let title = useSelector((state) => state.SingleMovie.movie.title);
     
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(runGpt("jurassic Park"))
-    console.log("yeahBaby")
+    dispatch(runGpt(title))
 
   }, [dispatch] );
 
-
-// let accumulator1 = ['start']
-// let gptOutputString =" "
-
-// for (let x of moviesLocations) {
-//   for (let y of x){
-//     gptOutputString = gptOutputString + y
-//     if (y == "$") {
-//       accumulator1.push(gptOutputString)
-//       gptOutputString = ""
-//   }
-//   }}
-
-//   console.log(accumulator1)
-console.log(moviesLocations)
-let accu = []
-console.log(JSON.stringify(moviesLocations))
-let jkl = JSON.stringify(moviesLocations)
-for (let x of jkl){
-for (let y of x){
-  accu.push(y.charCodeAt())
-}}
-
-console.log(accu)
-console.log(accu.filter((x) => x !== 92))
-let dark = accu.filter((x) => x !== 92)
-console.log(dark)
-
-let results = ""
-let num2 = 0
-
-dark.splice(1,1)
-dark.splice(dark.length-1,1)
-
-for (let x of dark){ 
-//   for (let y of x)
-// {
-  // results = results + String.fromCharCode(x)
-    // results = results + String.fromCharCode(accu[num2])
-    // results = results + String.fromCharCode(accu.filter((x) => x !== 92)[num2])
-    results = results + String.fromCharCode(dark[num2])
-
-    num2++
-// }
-}
-// results = results.slice
-results = results.replace(`["`,"[").replace(`"]`,"]").replace('nn',"")
-console.log(results)
-
-let num3 = ""
-let num4 = []
-let num10 = 0
-for (let x of results){
-   if (x == "{" || num10 == 1){
-      num10 = 1
-    num3 = num3 + x
-   }
-   if (x == "}"){
-    num10 = 0
-    num4.push(num3)
-    num3 = ""
-   }
-}
-// \ num4 = num4.replace(`"{`,"{").replace(`}"`,"}").replace('nn',"")
-console.log(num4)
-// console.log(num4[0].Locations)
-
-// console.log(JSON.parse(results))
-
-// console.log(results)'
-// console.log(JSON.parse(JSON.stringify(num4)))
-let jsonArray = num4.map(str => JSON.parse(str.replace(/'/g, '"')));
-console.log(jsonArray)
-console.log(jsonArray[0])
-let test = JSON.parse('{ "hello":"world" }')
-console.log(test)
+console.log (moviesLocations[0])
+let mapLocation = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBvM7kbW36ZXjGJ3F1Vku5Z-DzID1irEsM&q=${moviesLocations}`
 
   return (
     <div className ="text-white">
-    <p>Map</p>
+    <h1>Main Filming Location</h1>
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d299541.7993222058!2d-158.04694465273948!3d21.398213747602618!3m2!1i1024!2i768!4f13.1!3m2!1m1!2s!5e0!3m2!1sen!2sus!4v1683777597486!5m2!1sen!2sus"
+      src= {mapLocation}
       width="600"
       height="450"
       style={{ border: 0 }}
@@ -118,34 +44,13 @@ console.log(test)
       referrerPolicy="no-referrer-when-downgrade"
     ></iframe> 
 
-<div className="flex-1">
-<div className="form-control text-white">
-  <label className="label cursor-pointer text-white">
-    <span className="label-text text-white">Red pill</span> 
-    <input type="radio" name="radio-10" className="radio checked:bg-red-500 text-white" checked />
-  </label>
-</div>
-<div className="form-control">
-  <label className="label cursor-pointer text-white">
-    <span className="label-text text-white">Blue pill</span> 
-    <input type="radio" name="radio-10" className="radio checked:bg-blue-500" checked />
-  </label>
-</div>
-<div className="form-control">
-  <label className="label cursor-pointer text-white">
-    <span className="label-text text-white">Blue pill</span> 
-    <input type="radio" name="radio-10" className="radio checked:bg-blue-500" checked />
-  </label>
-</div>
-</div>
 
-<p>{moviesLocations}cool</p>
-{moviesLocations.map((movie) => (
-        
-            <p key={1}>{movie.Location}</p>
+
+<p>{moviesLocations}</p>
+
                   
           
-        ))}
+
 
 
 
