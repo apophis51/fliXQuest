@@ -28,30 +28,82 @@ export const Map = () => {
 
   }, [dispatch] );
 
-console.log("FOX ONE GO! " , moviesLocations)
 
-// moviesLocations.map((movie) => (
-//       console.log(movie.Location)))
-//       console.log("num2")
+// let accumulator1 = ['start']
+// let gptOutputString =" "
 
+// for (let x of moviesLocations) {
+//   for (let y of x){
+//     gptOutputString = gptOutputString + y
+//     if (y == "$") {
+//       accumulator1.push(gptOutputString)
+//       gptOutputString = ""
+//   }
+//   }}
 
-let accumulator1 = []
-let accumulator2 =" "
+//   console.log(accumulator1)
+console.log(moviesLocations)
+let accu = []
+console.log(JSON.stringify(moviesLocations))
+let jkl = JSON.stringify(moviesLocations)
+for (let x of jkl){
+for (let y of x){
+  accu.push(y.charCodeAt())
+}}
 
-for (let x of moviesLocations) {
-  for (let y of x){
-    console.log(y)
-    console.log("hahhahaha awesome")
-    accumulator2 = accumulator2 + y
-    if (y == "$") {
-      accumulator1.push(accumulator2)
-      console.log("lets get it")
-      accumulator2 = ""
-  }
-  }}
-  console.log(accumulator1)
+console.log(accu)
+console.log(accu.filter((x) => x !== 92))
+let dark = accu.filter((x) => x !== 92)
+console.log(dark)
 
+let results = ""
+let num2 = 0
 
+dark.splice(1,1)
+dark.splice(dark.length-1,1)
+
+for (let x of dark){ 
+//   for (let y of x)
+// {
+  // results = results + String.fromCharCode(x)
+    // results = results + String.fromCharCode(accu[num2])
+    // results = results + String.fromCharCode(accu.filter((x) => x !== 92)[num2])
+    results = results + String.fromCharCode(dark[num2])
+
+    num2++
+// }
+}
+// results = results.slice
+results = results.replace(`["`,"[").replace(`"]`,"]").replace('nn',"")
+console.log(results)
+
+let num3 = ""
+let num4 = []
+let num10 = 0
+for (let x of results){
+   if (x == "{" || num10 == 1){
+      num10 = 1
+    num3 = num3 + x
+   }
+   if (x == "}"){
+    num10 = 0
+    num4.push(num3)
+    num3 = ""
+   }
+}
+// \ num4 = num4.replace(`"{`,"{").replace(`}"`,"}").replace('nn',"")
+console.log(num4)
+// console.log(num4[0].Locations)
+
+// console.log(JSON.parse(results))
+
+// console.log(results)'
+// console.log(JSON.parse(JSON.stringify(num4)))
+let jsonArray = num4.map(str => JSON.parse(str.replace(/'/g, '"')));
+console.log(jsonArray)
+console.log(jsonArray[0])
+let test = JSON.parse('{ "hello":"world" }')
+console.log(test)
 
   return (
     <div className ="text-white">

@@ -47,10 +47,17 @@ router.get("/movielocations/:query", async (req, res, next) => {
   try {
         const completion = await openai.createCompletion({
         model: "text-davinci-003",
-        max_tokens: 500,
+        max_tokens: 1000,
         // prompt: req.params.query
         // prompt: `find me all movie locations for the movie ${req.params.query} and give it to me in this format LOCATION - WHat Was SHOT - (END)`
-        prompt: `find me all movie locations for the movie ${req.params.query} and give it to me in JSON format **DONT INCLUDE tabs or newline characters and no slashes****{$:"youranswer",Description:"what was shot there"},`
+        // prompt: `find me all movie locations for the movie ${req.params.query} and give it to me in JSON format **DONT INCLUDE tabs or newline characters and no slashes****{$:"youranswer",Description:"what was shot there"},`
+
+        prompt: `find me all movie locations for the movie ${req.params.query} and give it to me in JSON format **DONT INCLUDE tabs or newline characters and no slashes**** put it all on one line'{'Locations':'youranswer','Description':'what was shot there'},`
+
+
+        // prompt: `find me all movie locations for the movie ${req.params.query} and give it to me in JSON format **DONT INCLUDE tabs or newline characters and no slashes**** put it all on one line{Location:"youranswer",Description:"what was shot there"},`
+
+    //     prompt: `find me all movie locations for the movie ${req.params.query} and give it to me in JSON format **DONT INCLUDE tabs or newline characters and no slashes**** put it all on one line{Location:"youranswer",Description:"what was shot there"},`
     });
     console.log(completion.data.choices[0].text)
     res.json(completion.data.choices[0].text);
