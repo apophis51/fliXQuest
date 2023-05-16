@@ -40,6 +40,7 @@ export const runGpt = createAsyncThunk(
   }
 );
 
+
 export const fetchMoviesByGenre = createAsyncThunk(
   "movies/fetchMoviesByGenre",
   async (genreId) => {
@@ -107,10 +108,6 @@ const AllMoviesSlice = createSlice({
         else{
           state.movieReturn = true;
         }
-        //  console.log(state.movies.results)
-        // if (state.movies.results.length > 0) {
-        //    state.movieReturn = true;
-        //  }
       })
       .addCase(fetchMovieById.rejected, (state, action) => {
         state.status = "failed";

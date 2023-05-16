@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import AllTVshows from "../../TVSHOWS/AllTVshows";
 import BackButton from "../../../features/BackButton";
 
+
+
 const SingleMovie = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -58,6 +60,7 @@ const SingleMovie = () => {
           </div>
         </div>
       </div>
+      <Map/>
     </div>
   );
 };
