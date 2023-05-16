@@ -25,8 +25,7 @@ const Home = (props) => {
 
   return (
     <div>
-
-      <h3>Welcome, {username}</h3>
+      <h3 className="welcome">Welcome, {username}</h3>
       <div>
         {genres &&
           genres.map((genre) => (
@@ -41,30 +40,21 @@ const Home = (props) => {
             </button>
           ))}
       </div>
-      <h4>Featured Movies Today</h4>
       <ul>
-
         {featuredMovies &&
           featuredMovies.map((movie) => <li key={movie.id}>{movie.title}</li>)}
       </ul>
-      <h4 className="text">Featured TV Shows Today</h4>
       <ul className="text">
         {featuredTVShows &&
           featuredTVShows.map((show) => <li key={show.id}>{show.title}</li>)}
       </ul>
-
       <div>
-        <Link className="text" to="/movies">Movies</Link>
-        <Link className="text" to="/tvshows">TV Shows</Link>
+        {/* <Link className="text" to="/movies">Movies</Link>
+        <Link className="text" to="/tvshows">TV Shows</Link> */}
       </div>
       <div className="genres">
         <Genres></Genres>
       </div>
-      {/* <div className="movie-container">
-        <div className="card">
-          <AllMovies genreId={selectedGenre} />
-        </div>
-      </div> */}
     </div>
   );
 };
