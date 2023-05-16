@@ -105,7 +105,7 @@ function Genres() {
             >
               <Link to={`/movies/${movie.id}`}>
                 <div key={movie.id} className="movie">
-                  <img
+                  <img className="home-movie-poster"
                     src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
                     alt={movie.title}
                   />
@@ -131,14 +131,17 @@ function Genres() {
 
   return (
     <div className="MovieApp">
+      <div className="trailer">
       <div className="tags" ref={tagsEl}>
-        <div>Browse By Genre:</div>
+        <div className="browse-text">Browse By Genre:</div>
         {renderGenres()}
         {selectedGenre.length > 0 && (
           <div className="tag clear highlight" onClick={clearSelection}>
             Clear x
           </div>
         )}
+      </div>
+      <div className="box"></div>
       </div>
       <div className="movies">{renderMovies()}</div>
     </div>

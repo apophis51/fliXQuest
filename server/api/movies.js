@@ -23,9 +23,10 @@ router.get("/", async (req, res, next) => {
 
 router.get("/:id", async (req, res, next) => {
   try {
+    
     const apiKey = process.env.api_key;
     console.log(apiKey)
-   
+
     const movie = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.api_key}&query=${req.params.id}`);
 
 
@@ -39,7 +40,7 @@ router.get("/single/:id", async (req, res, next) => {
   try {
     const apiKey = process.env.api_key;
     console.log(apiKey)
-   
+
     const movie = await axios.get(`https://api.themoviedb.org/3/movie/${req.params.id}?api_key=${process.env.api_key}&language=en-US`);
 
 

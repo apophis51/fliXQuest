@@ -11,6 +11,7 @@
 a {
   text-decoration: none;
 }
+
 #login {
   color: red;
 }
@@ -33,7 +34,7 @@ form div {
   height: 50px;
   width: 50px;
   padding-bottom: 0;
-  margin: 0;
+  margin-top: 0;
   padding-top: 5px;
 }
 
@@ -43,7 +44,7 @@ form div {
 
 .container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   background-color: black;
 }
 
@@ -236,8 +237,6 @@ form div {
   color: white;
 }
 
-
-
 .tag {
   display: inline-block;
   margin: 5px;
@@ -250,6 +249,8 @@ form div {
   border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
+  width: 125px;
+  height: 35px;
 }
 
 .tag.highlight {
@@ -272,7 +273,6 @@ form div {
 
 .movie {
   margin: 20px;
-  max-width: 185px;
   position: relative;
 }
 
@@ -285,6 +285,7 @@ form div {
 .movie-info {
   margin-top: 10px;
   text-align: center;
+
 }
 
 .vote-average {
@@ -347,15 +348,28 @@ form div {
   justify-content: space-evenly;
   align-items: center;
   padding: 10px;
-  margin: 5px;
+  margin-left: 25px;
   border: 5px solid #ccc;
   border-radius: 37px;
   box-sizing: border-box;
-  width: 400px;
-  height: 50%;
+  width: 40%;
+  height: 350px;
   padding-bottom: 50px;
   overflow-y: auto;
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
+
+.box{
+  width: 56%;
+  height: 350px;
+  border: 5px solid #ccc;
+  border-radius: 37px;
+  padding: 10px;
+  margin-right: 25px;
+  margin-top: 15px;
+}
+
 
 .genre-bubble2{
   border: solid black 1px;
@@ -427,6 +441,60 @@ form div {
   padding: 0 20px;
   width: 100%;
 }
+
+.browse-text{
+  font-size: 30px;
+}
+
+.trailer{
+  display: flex;
+  justify-content: space-between;
+}
+
+.movie-trailer-container{
+  display: flex;
+}
+
+.movie-trailer{
+  height: 400px;
+  width: 500px;
+  border: 5px solid white;
+  margin-left: 50px;
+  width: 60%
+}
+
+.welcome{
+  color: white;
+}
+
+.links{
+  color: white;
+}
+
+.horizontal-scroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.featured-movies,
+.featured-tvshows {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  width: 100%;
+}
+
+.featured-movies li,
+.featured-tvshows li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+
+
+
+
 
 
 
