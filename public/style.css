@@ -5,7 +5,9 @@
 .body {
   font-family: sans-serif;
   background-color: black;
-  height: 825px;
+
+  height: 600px;
+
 }
 
 a {
