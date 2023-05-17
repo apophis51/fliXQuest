@@ -6,6 +6,7 @@ import AllTVshowsSlice from '../features/TVSHOWS/AllTVshowsSlice';
 import SingleMovieSlice from '../features/Movies/SingleMovie/SingleMovieSlice';
 import SingleTVshowSlice from '../features/TVSHOWS/SingleTVshows/SingleTVshowSlice';
 import NavbarSlice from '../features/navbar/NavbarSlice';
+import movieTrailerSlice from '../features/movieTrailer/movieTrailerSlice';
 
 
 
@@ -19,6 +20,7 @@ const store = configureStore({
     SingleMovie: SingleMovieSlice,
     SingleTVshow: SingleTVshowSlice,
     Navbar: NavbarSlice,
+    MovieTrailer: movieTrailerSlice,
 
    },
   // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
