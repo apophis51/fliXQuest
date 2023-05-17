@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleTVshow, selectSingleTVshow } from "./SingleTVshowSlice";
 import { useParams } from "react-router-dom";
+import Map from "../../Map/TVMap";
+
 
 const SingleTVshow = () => {
   const dispatch = useDispatch();
@@ -54,6 +56,7 @@ const SingleTVshow = () => {
           </div>
         </div>
       </div>
+      <Map />
     </div>
   );
 };

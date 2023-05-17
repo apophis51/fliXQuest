@@ -23,6 +23,7 @@ const Navbar = () => {
   ///////////////////////////////////////////////delete this line when done troubleshooting
   const handleSearch = (event) => {
     event.preventDefault();
+    console.log("cool")
       navigate(`/searchresults`);
   };
 ////////////////////////////////////////////////delete this line when done troubleshooting

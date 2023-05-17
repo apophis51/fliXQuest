@@ -11,11 +11,12 @@ const SingleMovie = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { movie, loading, error } = useSelector((state) => state.SingleMovie);
+  let navbarresults = useSelector((state) => state.Navbar.movieQuery);
 
 
   useEffect(() => {
     dispatch(fetchSingleMovie(id));
-  }, [dispatch, id]);
+  }, [dispatch, id, navbarresults]);
 
   if (loading) {
     return <div>Loading Movie Information...</div>;
@@ -32,6 +33,7 @@ const SingleMovie = () => {
 
   return (
     <div className="single-container">
+      {navbarresults}
       <div className="single-movie">
         <div className="card">
           <div className="single-title-box">

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllMovies } from "./AllMoviesSlice";
 import { Link } from "react-router-dom";
+
 const AllMovies = () => {
   const dispatch = useDispatch();
   const moviesResponse = useSelector((state) => state.AllMovies.movies);
@@ -20,6 +21,7 @@ const AllMovies = () => {
   };
 
   let num2 = 3;
+  let navbarresults = useSelector((state) => state.Navbar.movieQuery);
 
   useEffect(() => {
     dispatch(fetchAllMovies());
@@ -42,6 +44,7 @@ const AllMovies = () => {
   let num = 0;
   return (
     <div className="movies-container">
+      {navbarresults}
       <p className="page-title">All Movies</p>
       <div className="categories"></div>
       <div className="AllMovies">
