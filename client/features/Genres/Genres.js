@@ -90,7 +90,6 @@ function Genres() {
 
     return (
       <div className="movies-container">
-
         <p className="page-title">Featured Movies:</p>
         <div className="categories"></div>
         <div className="AllMovies">
@@ -127,12 +126,10 @@ function Genres() {
               </div> */}
             </div>
           ))}
-
         </div>
         <div id="slide1" className="carousel-item relative w-full"></div>
       </div>
     );
-
   }
 
   function handleMovieClick(movie) {
@@ -168,14 +165,11 @@ function Genres() {
                 Clear x
               </div>
             )}
-
           </div>
         </div>
         <div className="featured-trailer">
           <MovieTrailer />
         </div>
-      </div>
-      <div className="box"></div>
       </div>
       <div className="movies">{renderMovies()}</div>
     </div>
