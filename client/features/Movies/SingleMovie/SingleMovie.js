@@ -6,6 +6,7 @@ import {
   selectSingleMovie,
 } from "./SingleMovieSlice";
 import { useParams } from "react-router-dom";
+import Map from "../../Map/Map";
 
 
 import AllTVshows from "../../TVSHOWS/AllTVshows";
@@ -95,6 +96,7 @@ const SingleMovie = () => {
         </div>
       </div>
       <Map/>
+    </div>
     </div>
   );
 };

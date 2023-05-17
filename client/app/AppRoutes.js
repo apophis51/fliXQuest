@@ -9,12 +9,14 @@ import SingleMovie from "../features/Movies/SingleMovie/SingleMovie";
 import SingleTVshow from "../features/TVSHOWS/SingleTVshows/SingleTVshow";
 import SearchResults from "../features/SearchResults/SearchResults";
 import { me } from "./store";
+
 const AppRoutes = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(me());
   }, [dispatch]);
+
   return (
     <div>
       <Routes>
@@ -57,4 +59,5 @@ const AppRoutes = () => {
     </div>
   );
 };
+
 export default AppRoutes;
