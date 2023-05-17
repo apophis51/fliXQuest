@@ -36,6 +36,24 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+router.get("/video/:id", async (req, res, next) => {
+  try {
+    const apiKey = process.env.api_key;
+    console.log(apiKey);
+
+    const movie = await axios.get(
+      `https://api.themoviedb.org/3/movie/${req.params.id}/videos?api_key=${process.env.api_key}`
+    );
+
+    console.log(movie.data);
+
+    res.json(movie.data);
+  } catch (error) {
+    next(error);
+  }
+});
+
+
 router.get("/single/:id", async (req, res, next) => {
   try {
     const apiKey = process.env.api_key;

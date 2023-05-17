@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+
 export const fetchSingleMovie = createAsyncThunk(
   "singleMovie/fetchSingleMovie",
   async (movieId) => {
     try {
-      const response = await axios.get(`/api/movies/single/${movieId}`);
+      const response = await axios.get(`/api/movies/video/${movieId}`);
       return response.data;
     } catch (error) {
       console.log("Error fetching movie: ", error);
@@ -31,8 +32,8 @@ export const fetchMovieTrailer = createAsyncThunk(
   }
 );
 
-const SingleMovieSlice = createSlice({
-  name: "singleMovie",
+const movieTrailerSlice = createSlice({
+  name: "movieTrailer",
   initialState: {
     movie: null,
     loading: true,
@@ -58,5 +59,7 @@ const SingleMovieSlice = createSlice({
     });
   },
 });
+
 export const selectSingleMovie = (state) => state.singleMovie;
-export default SingleMovieSlice.reducer;
+
+export default movieTrailerSlice.reducer;

@@ -6,6 +6,12 @@ import {
   selectSingleMovie,
 } from "./SingleMovieSlice";
 import { useParams } from "react-router-dom";
+
+import Map from "../../Map/Map";
+
+
+import AllTVshows from "../../TVSHOWS/AllTVshows";
+
 import BackButton from "../../../features/BackButton";
 import Map from "../../Map/Map";
 
@@ -15,6 +21,7 @@ const SingleMovie = () => {
   const { movie, loading, error, trailerUrl } = useSelector(
     (state) => state.SingleMovie
   );
+
   useEffect(() => {
     dispatch(fetchSingleMovie(id));
     dispatch(fetchMovieTrailer(id));
@@ -27,14 +34,17 @@ const SingleMovie = () => {
   }
   // Add the base URL for the images
   const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+
   // Create the embed URL for the trailer
   const trailerEmbedUrl = trailerUrl
     ? trailerUrl.replace("watch?v=", "embed/")
     : null;
+
   return (
     <div className="single-container">
       <div className="single-movie">
         <div className="card">
+
             <div className="single-title-box">
               <p className="single-movie-title">{movie.title}</p>
               <BackButton />
@@ -68,6 +78,7 @@ const SingleMovie = () => {
           <p id="overview" className="text">
             {movie.overview}
           </p>
+
           <p className="text">Released - {movie.release_date}</p>
           <div className="rank-star">
             <img
@@ -80,6 +91,7 @@ const SingleMovie = () => {
         </div>
       </div>
       <Map />
+    </div>
     </div>
   );
 };
