@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
+import MovieTrailer from "../movieTrailer/movieTrailer";
+
+
+
 
 const API_URL =
   "https://api.themoviedb.org/3//discover/movie?sort_by=popularity.desc&api_key=1cf50e6248dc270629e802686245c2c8";
@@ -84,11 +88,9 @@ function Genres() {
           )
         : movies;
 
-    let num = 0;
-
-
     return (
-      <div className="home-container">
+      <div className="movies-container">
+
         <p className="page-title">Featured Movies:</p>
         <div className="categories"></div>
         <div className="AllMovies">
@@ -98,14 +100,10 @@ function Genres() {
         </div>
         <div className="carousel rounded-box">
           {filteredMovies.map((movie) => (
-            <div
-              className="carousel-item inline-flex"
-              id={"item" + num++}
-              key={movie.id}
-            >
+            <div className="carousel-item inline-flex" key={movie.id}>
               <Link to={`/movies/${movie.id}`}>
-                <div key={movie.id} className="movie">
-                  <img className="home-movie-poster"
+                <div className="movie">
+                  <img
                     src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
                     alt={movie.title}
                   />
@@ -119,27 +117,63 @@ function Genres() {
                   </div>
                 </div>
               </Link>
+              {/* <div className="trailer-button">
+                <button
+                  onClick={() => handleMovieClick(movie)}
+                  className="watch-trailer-button"
+                >
+                  Watch Trailer
+                </button>
+              </div> */}
             </div>
           ))}
+
         </div>
-        <div id="slide1" className="carousel-item relative w-full">
-          {" "}
-        </div>
+        <div id="slide1" className="carousel-item relative w-full"></div>
       </div>
     );
+
+  }
+
+  function handleMovieClick(movie) {
+    fetch(
+      `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=1cf50e6248dc270629e802686245c2c8`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        const trailer = data.results.find((video) => video.type === "Trailer");
+        if (trailer) {
+          window.open(
+            `https://www.youtube.com/watch?v=${trailer.key}`,
+            "_blank"
+          );
+        } else {
+          console.log("Trailer not available");
+        }
+      })
+      .catch((error) => {
+        console.log("Error fetching movie trailer:", error);
+      });
   }
 
   return (
-    <div className="MovieApp">
-      <div className="trailer">
-      <div className="tags" ref={tagsEl}>
-        <div className="browse-text">Browse By Genre:</div>
-        {renderGenres()}
-        {selectedGenre.length > 0 && (
-          <div className="tag clear highlight" onClick={clearSelection}>
-            Clear x
+    <div>
+      <div className="MovieApp">
+        <div className="tags" ref={tagsEl}>
+          <div>Browse By Genre:</div>
+          <div className="genres-container">
+            {renderGenres()}
+            {selectedGenre.length > 0 && (
+              <div className="tag clear highlight" onClick={clearSelection}>
+                Clear x
+              </div>
+            )}
+
           </div>
-        )}
+        </div>
+        <div className="featured-trailer">
+          <MovieTrailer />
+        </div>
       </div>
       <div className="box"></div>
       </div>
