@@ -5,9 +5,7 @@
 .body {
   font-family: sans-serif;
   background-color: black;
-
-  height: 600px;
-
+  height: 820px;
 }
 
 a {
@@ -48,6 +46,7 @@ form div {
   display: flex;
   justify-content: space-between;
   background-color: black;
+  align-items: center;
 }
 
 .dropbtn {
@@ -208,12 +207,14 @@ form div {
 
 .card{
   padding: 20px;
+  border: solid 5px rgb(191, 70, 14);
 }
 
 .single-poster{
   border-radius: 15px;
   width: 300px;
   height: 400px;
+  border: solid 5px rgb(191, 70, 14);
 }
 
 .single-title-box{
@@ -227,6 +228,7 @@ form div {
   color: white;
   font-size: 35px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding-bottom: 20px;
 }
 
 .genres{
@@ -336,7 +338,8 @@ form div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: fit-content;
+  width: 350px;
+  padding-left: 15px;
 }
 
 #overview {
@@ -491,6 +494,18 @@ form div {
 .featured-tvshows li {
   display: inline-block;
   margin-right: 10px;
+}
+
+.trailer-box{
+  display: flex;
+}
+
+.trailer-embed{
+  border-radius: 15px;
+  margin-left: 40px;
+  height: 400px;
+  width: 55vw;
+  border: solid 5px rgb(191, 70, 14);
 }
 
 
