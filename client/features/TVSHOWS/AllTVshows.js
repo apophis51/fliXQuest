@@ -38,7 +38,7 @@ const AllTVshows = () => {
     tvshowsResponse && tvshowsResponse.results
       ? tvshowsResponse.results
           .filter((tvshow) => tvshow.name !== "Undefined")
-          .slice(0, 20)
+          .slice(0, 50)
       : [];
 
   if (!Array.isArray(tvshows) || tvshows.length === 0) {
@@ -56,7 +56,7 @@ const AllTVshows = () => {
         </div>
       </div>
       <div className="carousel rounded-box">
-        <div className="absolute flex justify-between transform -translate-y-1/2 left-12 right-12 top-1/3 text-white">
+        <div className="absolute flex justify-between transform -translate-y-1/3 left-12 right-12 top-1/3 text-white">
           <a
             href={"#item" + currentItemNumber}
             className="carousel-item"
@@ -78,7 +78,7 @@ const AllTVshows = () => {
             id={"item" + num++}
             key={tvshow.id}
           >
-            <Link to={`/movies/${tvshow.id}`}>
+            <Link to={`/tvshows/${tvshow.id}`}>
               <div className="inner-box">
                 <div className="show-name">
                   <img

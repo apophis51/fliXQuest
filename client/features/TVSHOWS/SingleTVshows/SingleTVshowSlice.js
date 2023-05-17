@@ -1,11 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
 export const fetchSingleTVshow = createAsyncThunk(
     'TVshows/fetchSingleTVshow',
     async (TVshowId) => {
         try {
-            const response = await axios.get(`/api/tvshows/${TVshowId}`);
+            const response = await axios.get(`/api/tvshows/single/${TVshowId}`);
             return response.data;
         } catch (error) {
             console.log("Error fetching TVshow: ", error);
@@ -13,19 +12,18 @@ export const fetchSingleTVshow = createAsyncThunk(
         }
     }
 );
-
 const SingleTVshowSlice = createSlice({
-    name: 'TVshows',
+    name: 'singleTVshow',
     initialState: {
-        tvshow: {},
+        tvshow: null,
         loading: true,
-        error: false,
+        error: null,
     },
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(fetchSingleTVshow.pending, (state) => {
             state.loading = true;
-            state.error = false;
+            state.error = null;
         });
         builder.addCase(fetchSingleTVshow.fulfilled, (state, action) => {
             state.loading = false;
@@ -38,7 +36,5 @@ const SingleTVshowSlice = createSlice({
         });
     }
 });
-
-export const selectSingleTVshow = (state) => state.singleTVshow.tvshow;
-
+export const selectSingleTVshow = (state) => state.singleTVshow;
 export default SingleTVshowSlice.reducer;

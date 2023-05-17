@@ -6,12 +6,20 @@ import {
   selectSingleMovie,
 } from "./SingleMovieSlice";
 import { useParams } from "react-router-dom";
+
+
+import AllTVshows from "../../TVSHOWS/AllTVshows";
+import BackButton from "../../../features/BackButton";
+
+
+
 const SingleMovie = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { movie, loading, error, trailerUrl } = useSelector(
     (state) => state.SingleMovie
   );
+
 
 
   useEffect(() => {
@@ -58,7 +66,9 @@ const SingleMovie = () => {
           </div>
           <div className="single-title-box">
             <p className="single-movie-title">{movie.title}</p>
+            <BackButton />
           </div>
+          <div className="movie-trailer-container">
           <div className="poster-genre-container">
             <img className="single-poster" src={imageUrl} alt={movie.title} />
             <div className="genre-container">
@@ -72,6 +82,7 @@ const SingleMovie = () => {
           <p id="overview" className="text">
             {movie.overview}
           </p>
+
           <p className="text">Released - {movie.release_date}</p>
           <div className="rank-star">
             <img
@@ -83,6 +94,7 @@ const SingleMovie = () => {
           </div>
         </div>
       </div>
+      <Map/>
     </div>
   );
 };

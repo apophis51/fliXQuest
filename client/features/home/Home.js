@@ -34,6 +34,7 @@ const Home = (props) => {
           {/* <MovieTrailer></MovieTrailer> */}
         </div>
       </div>
+
     </div>
   );
 };

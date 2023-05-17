@@ -7,11 +7,13 @@
   font-family: sans-serif;
   background-color: black;
   height: auto;
+
 }
 
 a {
   text-decoration: none;
 }
+
 #login {
   color: red;
 }
@@ -34,7 +36,7 @@ form div {
   height: 50px;
   width: 50px;
   padding-bottom: 0;
-  margin: 0;
+  margin-top: 0;
   padding-top: 5px;
 }
 
@@ -44,7 +46,7 @@ form div {
 
 .container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   background-color: black;
 }
 
@@ -226,6 +228,8 @@ form div {
 .single-title-box {
   padding-left: 10px;
   padding-bottom: 2px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .single-movie-title {
@@ -273,6 +277,7 @@ form div {
   overflow-y: auto;
 }
 
+
 .tag {
   display: inline-block;
   margin: 5px;
@@ -281,10 +286,11 @@ form div {
   font-size: 14px;
   font-weight: bold;
   color: #fff;
-  background-color: #cb6200;
+  background-color: #CB6200;
   border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
+
 }
 
 .tag.highlight {
@@ -386,7 +392,6 @@ form div {
 
 .movie {
   margin: 20px;
-  max-width: 185px;
   position: relative;
 }
 
@@ -401,6 +406,7 @@ form div {
 .movie-info {
   margin-top: 10px;
   text-align: center;
+
 }
 
 .vote-average {
@@ -498,6 +504,7 @@ h1 {
   text-align: center;
   color: rgb(191, 70, 14);
 }
+
 
 .genres-container {
   display: flex;

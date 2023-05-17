@@ -33,23 +33,16 @@ const Navbar = () => {
       <nav className="nav">
         {isLoggedIn ? (
           <div className="container">
+            <Link className="home-link" to="/">
             <div className="img">
-              <img
-                className="logo"
-                src="https://ia.media-imdb.com/images/M/MV5BODc4MTA3NjkzNl5BMl5BcG5nXkFtZTgwMDg0MzQ2OTE@._V1_.png"
-              />
+              <img src="./logo.png"/>
             </div>
+            </Link>
             <Link className="home-link" to="/">
               Home
             </Link>
-            <div className="dropdown">
-              <button className="dropbtn">Dropdown</button>
-              <div className="dropdown-content">
                 <Link to="/tvshows">TV Shows</Link>
                 <Link to="/movies">Movies</Link>
-                <Link to="/CastCrew">Cast/Crew</Link>
-              </div>
-            </div>
             <form onSubmit={handleSearch}>
               <input
               className="search"
@@ -68,23 +61,16 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="container">
+            <Link className="home-link" to="/">
             <div className="img">
-              <img
-                className="logo"
-                src="https://ia.media-imdb.com/images/M/MV5BODc4MTA3NjkzNl5BMl5BcG5nXkFtZTgwMDg0MzQ2OTE@._V1_.png"
-              />
+              <img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/IMDb_Logo_Square.svg/1200px-IMDb_Logo_Square.svg.png"/>
             </div>
+            </Link>
             <Link className="home-link" to="/">
               Home
             </Link>
-            <div className="dropdown">
-              <button className="dropbtn">Menu</button>
-              <div className="dropdown-content">
-                <Link to="/tvshows">TV Shows</Link>
-                <Link to="/movies">Movies</Link>
-                <Link to="/CastCrew">Cast/Crew</Link>
-              </div>
-            </div>
+                <Link className="links" to="/tvshows">TV Shows</Link>
+                <Link className="links" to="/movies">Movies</Link>
             <form onSubmit={handleSearch}>
               <input
                 className="search"

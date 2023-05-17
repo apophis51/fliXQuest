@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+
 import MovieTrailer from "../movieTrailer/movieTrailer";
+
+
+
 
 const API_URL =
   "https://api.themoviedb.org/3//discover/movie?sort_by=popularity.desc&api_key=1cf50e6248dc270629e802686245c2c8";
@@ -9,12 +13,20 @@ function Genres() {
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState([]);
   const [movies, setMovies] = useState([]);
+  // added
+  const [currentItemNumber, setCurrentItemNumber] = useState(1);
+  const [numOfItems, setNumOfItems] = useState(0);
   const tagsEl = useRef(null);
 
   useEffect(() => {
     fetchGenres();
     getMovies(API_URL);
   }, []);
+
+  // added
+  useEffect(() => {
+    setNumOfItems(movies.length);
+  }, [movies]);
 
   function fetchGenres() {
     fetch(
@@ -55,6 +67,19 @@ function Genres() {
     ));
   }
 
+  // added
+  const handleItemClick = () => {
+    num2 = currentItemNumber + 3;
+    setCurrentItemNumber(num2);
+  };
+  // added
+  const handleItemDelete = () => {
+    num2 = currentItemNumber - 3;
+    setCurrentItemNumber(num2);
+  };
+  // added
+  let num2 = 3;
+
   function renderMovies() {
     const filteredMovies =
       selectedGenre.length > 0
@@ -65,6 +90,7 @@ function Genres() {
 
     return (
       <div className="movies-container">
+
         <p className="page-title">Featured Movies:</p>
         <div className="categories"></div>
         <div className="AllMovies">
@@ -101,10 +127,12 @@ function Genres() {
               </div> */}
             </div>
           ))}
+
         </div>
         <div id="slide1" className="carousel-item relative w-full"></div>
       </div>
     );
+
   }
 
   function handleMovieClick(movie) {
@@ -140,11 +168,14 @@ function Genres() {
                 Clear x
               </div>
             )}
+
           </div>
         </div>
         <div className="featured-trailer">
           <MovieTrailer />
         </div>
+      </div>
+      <div className="box"></div>
       </div>
       <div className="movies">{renderMovies()}</div>
     </div>
