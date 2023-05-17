@@ -32,7 +32,9 @@ console.log (moviesLocations[0])
 let mapLocation = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBvM7kbW36ZXjGJ3F1Vku5Z-DzID1irEsM&q=${moviesLocations}`
 
   return (
-    <div className ="text-white">
+    <div>
+      <br></br>
+    <div className ="text-white single-movie">
     <h1>Main Filming Location</h1>
     <iframe
       src= {mapLocation}
@@ -60,6 +62,7 @@ let mapLocation = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBvM7kbW3
 
     
       
+      </div>
       </div>
   )
 }

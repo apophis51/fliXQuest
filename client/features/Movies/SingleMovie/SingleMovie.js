@@ -4,7 +4,7 @@ import { fetchSingleMovie, selectSingleMovie } from "./SingleMovieSlice";
 import { useParams } from "react-router-dom";
 import AllTVshows from "../../TVSHOWS/AllTVshows";
 import BackButton from "../../../features/BackButton";
-
+import Map from "../../Map/Map";
 
 
 const SingleMovie = () => {
