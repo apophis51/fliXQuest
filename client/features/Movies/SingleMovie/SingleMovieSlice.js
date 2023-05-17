@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
 export const fetchSingleMovie = createAsyncThunk(
   "singleMovie/fetchSingleMovie",
   async (movieId) => {
@@ -59,7 +58,5 @@ const SingleMovieSlice = createSlice({
     });
   },
 });
-
 export const selectSingleMovie = (state) => state.singleMovie;
-
 export default SingleMovieSlice.reducer;

@@ -35,7 +35,7 @@ const Navbar = () => {
           <div className="container">
             <Link className="home-link" to="/">
             <div className="img">
-              <img src="./logo.png"/>
+              <img src="/vendeta.png"/>
             </div>
             </Link>
             <Link className="home-link" to="/">
@@ -63,7 +63,7 @@ const Navbar = () => {
           <div className="container">
             <Link className="home-link" to="/">
             <div className="img">
-              <img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/IMDb_Logo_Square.svg/1200px-IMDb_Logo_Square.svg.png"/>
+              <img className="logo" src="/vendeta.png"/>
             </div>
             </Link>
             <Link className="home-link" to="/">
