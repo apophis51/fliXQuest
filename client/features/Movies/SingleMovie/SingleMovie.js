@@ -12,11 +12,6 @@ import BackButton from "../../../features/BackButton";
 
 import Map from "../../Map/Map";
 
-
-import AllTVshows from "../../TVSHOWS/AllTVshows";
-
-import BackButton from "../../../features/BackButton";
-
 const SingleMovie = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -46,7 +41,6 @@ const SingleMovie = () => {
 
   return (
     <div className="single-container">
-      {navbarresults}
       <div className="single-movie">
         <div className="card">
 
