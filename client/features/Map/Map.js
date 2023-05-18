@@ -28,6 +28,8 @@ export const Map = () => {
 
   }, [dispatch] );
 
+ 
+
 console.log (moviesLocations[0])
 let mapLocation = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBvM7kbW36ZXjGJ3F1Vku5Z-DzID1irEsM&q=${moviesLocations}`
 
