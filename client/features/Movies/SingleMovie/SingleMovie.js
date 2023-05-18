@@ -7,15 +7,16 @@ import {
 } from "./SingleMovieSlice";
 import { useParams } from "react-router-dom";
 
+
 import Map from "../../Map/Map";
 
 import AllTVshows from "../../TVSHOWS/AllTVshows";
-
 import BackButton from "../../../features/BackButton";
 
 const SingleMovie = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
+
   const { movie, loading, error, trailerUrl } = useSelector(
     (state) => state.SingleMovie
   );
@@ -24,6 +25,7 @@ const SingleMovie = () => {
     dispatch(fetchSingleMovie(id));
     dispatch(fetchMovieTrailer(id));
   }, [dispatch, id]);
+
   if (loading) {
     return <div>Loading Movie Information...</div>;
   }
