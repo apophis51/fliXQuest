@@ -18,7 +18,7 @@ import { runGpt} from "./MapSlice";
 export const Map = () => {
 
     let moviesLocations = useSelector((state) => state.MapSlice.filmLocations);
-    let title = useSelector((state) => state.SingleMovie.movie.title);
+    let title = useSelector((state) => state.SingleTVshow.tvshow.name);
     
 
   const dispatch = useDispatch();
@@ -27,8 +27,6 @@ export const Map = () => {
     dispatch(runGpt(title))
 
   }, [dispatch] );
-
- 
 
 console.log (moviesLocations[0])
 let mapLocation = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBvM7kbW36ZXjGJ3F1Vku5Z-DzID1irEsM&q=${moviesLocations}`

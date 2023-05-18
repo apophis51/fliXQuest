@@ -6,6 +6,7 @@ import {
   selectSingleTVshow,
 } from "./SingleTVshowSlice";
 import { useParams } from "react-router-dom";
+
 import BackButton from "../../../features/BackButton";
 import Map from "../../Map/Map";
 
@@ -77,7 +78,9 @@ const SingleTVshow = () => {
           </div>
         </div>
       </div>
+
       {/* <Map /> */}
+
     </div>
   );
 };
