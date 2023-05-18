@@ -37,6 +37,7 @@ const SingleTVshow = () => {
               <p className="single-movie-title">{tvshow.name}</p>
               <BackButton />
             </div>
+            
             <div className="trailer-box">
             <div className="poster-genre-container">
               <img className="single-poster" src={imageUrl} alt={tvshow.name} />
@@ -76,7 +77,7 @@ const SingleTVshow = () => {
           </div>
         </div>
       </div>
-      <Map />
+      {/* <Map /> */}
     </div>
   );
 };

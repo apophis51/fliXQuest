@@ -5,7 +5,6 @@
   font-family: sans-serif;
   background-color: black;
   height: 820px;
-
 }
 a {
   text-decoration: none;
@@ -180,7 +179,6 @@ form div {
 .card {
   padding: 20px;
   border: solid 5px rgb(191, 70, 14);
-
 }
 .single-poster {
   border-radius: 15px;
@@ -199,7 +197,6 @@ form div {
   font-size: 35px;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   padding-bottom: 20px;
-
 }
 .genres {
   color: white;
@@ -439,13 +436,9 @@ h1 {
   justify-content: center;
   margin-top: 10px;
 }
-
-
 .trailer-box{
   display: flex;
 }
-
-
 .trailer-embed{
   border-radius: 15px;
   margin-left: 40px;
@@ -457,4 +450,3 @@ h1 {
   height: 30px;
   width: 30px;
 }
-

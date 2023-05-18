@@ -13,7 +13,6 @@ import Map from "../../Map/Map";
 import AllTVshows from "../../TVSHOWS/AllTVshows";
 
 import BackButton from "../../../features/BackButton";
-import Map from "../../Map/Map";
 
 const SingleMovie = () => {
   const dispatch = useDispatch();
@@ -91,7 +90,6 @@ const SingleMovie = () => {
         </div>
       </div>
       <Map />
-    </div>
     </div>
   );
 };
