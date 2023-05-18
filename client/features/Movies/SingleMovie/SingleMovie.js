@@ -7,10 +7,11 @@ import {
 } from "./SingleMovieSlice";
 import { useParams } from "react-router-dom";
 
-import AllTVshows from "../../TVSHOWS/AllTVshows";
-import BackButton from "../../../features/BackButton";
 
 import Map from "../../Map/Map";
+
+import AllTVshows from "../../TVSHOWS/AllTVshows";
+import BackButton from "../../../features/BackButton";
 
 const SingleMovie = () => {
   const dispatch = useDispatch();
@@ -43,12 +44,11 @@ const SingleMovie = () => {
     <div className="single-container">
       <div className="single-movie">
         <div className="card">
-
-            <div className="single-title-box">
-              <p className="single-movie-title">{movie.title}</p>
-              <BackButton />
-            </div>
-            <div className="trailer-box">
+          <div className="single-title-box">
+            <p className="single-movie-title">{movie.title}</p>
+            <BackButton />
+          </div>
+          <div className="trailer-box">
             <div className="poster-genre-container">
               <img className="single-poster" src={imageUrl} alt={movie.title} />
               <div className="genre-container">
@@ -59,21 +59,22 @@ const SingleMovie = () => {
                 ))}
               </div>
             </div>
-          <div>
-          <div className="trailer-box-container">
-              {trailerEmbedUrl && (
-                <iframe className="trailer-embed"
-                  width="560"
-                  height="315"
-                  src={trailerEmbedUrl}
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              )}
+            <div>
+              <div className="trailer-box-container">
+                {trailerEmbedUrl && (
+                  <iframe
+                    className="trailer-embed"
+                    width="560"
+                    height="315"
+                    src={trailerEmbedUrl}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullScreen
+                  ></iframe>
+                )}
+              </div>
             </div>
-            </div>
-            </div>
+          </div>
           <p id="overview" className="text">
             {movie.overview}
           </p>

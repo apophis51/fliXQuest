@@ -40,11 +40,11 @@ const MovieTrailer = () => {
   return (
     <div className="featured-container">
       <div className="trailer-card">
-        <h1>Featured Trailer</h1>
+        {/* <h1>Featured Trailer</h1> */}
         <div>
           {trailerEmbedUrl && (
             <iframe
-              width="560"
+              width="100%"
               height="315"
               src={trailerEmbedUrl}
               frameBorder="0"

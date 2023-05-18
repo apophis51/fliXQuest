@@ -89,7 +89,7 @@ function Genres() {
         : movies;
 
     return (
-      <div className="movies-container">
+      <div className="home-movies-container">
         <p className="page-title">Featured Movies:</p>
         <div className="categories"></div>
         <div className="AllMovies">
@@ -156,8 +156,9 @@ function Genres() {
   return (
     <div>
       <div className="MovieApp">
+        <div className="trailer">
         <div className="tags" ref={tagsEl}>
-          <div>Browse By Genre:</div>
+          <div className="browse-text">Browse By Genre:</div>
           <div className="genres-container">
             {renderGenres()}
             {selectedGenre.length > 0 && (
@@ -170,6 +171,8 @@ function Genres() {
         <div className="featured-trailer">
           <MovieTrailer />
         </div>
+        </div>
+
       </div>
       <div className="movies">{renderMovies()}</div>
     </div>
