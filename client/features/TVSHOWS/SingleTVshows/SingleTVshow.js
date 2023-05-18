@@ -8,7 +8,7 @@ import {
 import { useParams } from "react-router-dom";
 
 import BackButton from "../../../features/BackButton";
-import Map from "../../Map/Map";
+import Map from "../../Map/TVMap";
 
 const SingleTVshow = () => {
   const dispatch = useDispatch();
@@ -79,7 +79,7 @@ const SingleTVshow = () => {
         </div>
       </div>
 
-      {/* <Map /> */}
+      <Map />
 
     </div>
   );
