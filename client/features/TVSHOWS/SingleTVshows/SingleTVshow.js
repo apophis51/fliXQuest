@@ -55,9 +55,9 @@ const SingleTVshow = () => {
                   width="560"
                   height="315"
                   src={trailerEmbedUrl}
-                  frameborder="0"
+                  frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
+                  allowfullScreen
                 ></iframe>
               )}
             </div>
