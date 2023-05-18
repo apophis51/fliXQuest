@@ -1,21 +1,24 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSingleTVshow, selectSingleTVshow } from "./SingleTVshowSlice";
+import {
+  fetchSingleTVshow,
+  fetchTVShowTrailer,
+  selectSingleTVshow,
+} from "./SingleTVshowSlice";
 import { useParams } from "react-router-dom";
-import Map from "../../Map/TVMap";
 
+import BackButton from "../../../features/BackButton";
+import Map from "../../Map/Map";
 
 const SingleTVshow = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const { tvshow, loading, error } = useSelector((state) => state.SingleTVshow);
-
-  const handleBackButtonClick = () => {
-    window.history.back();
-  }
-
+  const { tvshow, loading, error, trailerUrl } = useSelector(
+    (state) => state.SingleTVshow
+  );
   useEffect(() => {
     dispatch(fetchSingleTVshow(id));
+    dispatch(fetchTVShowTrailer(id));
   }, [dispatch, id]);
   if (loading) {
     return <div>Loading TV Show Information...</div>;
@@ -24,25 +27,44 @@ const SingleTVshow = () => {
     return <div>Error loading TV show information.</div>;
   }
   const imageUrl = `https://image.tmdb.org/t/p/w500${tvshow.poster_path}`;
-
+  const trailerEmbedUrl = trailerUrl
+    ? trailerUrl.replace("watch?v=", "embed/")
+    : null;
   return (
     <div className="single-container">
       <div className="single-movie">
         <div className="card">
-          <div className="single-title-box">
-            <p className="single-movie-title">{tvshow.name}</p>
-            <img className="x" src="https://cdn-icons-png.flaticon.com/512/483/483366.png" onClick={handleBackButtonClick}/>
-          </div>
-          <div className="poster-genre-container">
-            <img className="single-poster" src={imageUrl} alt={tvshow.name} />
-            <div className="genre-container">
-              {tvshow.genres.map((genre) => (
-                <div className="genre-bubble2">
-                <div>{genre.name}</div>
-                </div>
-              ))}
+            <div className="single-title-box">
+              <p className="single-movie-title">{tvshow.name}</p>
+              <BackButton />
             </div>
-          </div>
+            
+            <div className="trailer-box">
+            <div className="poster-genre-container">
+              <img className="single-poster" src={imageUrl} alt={tvshow.name} />
+              <div className="genre-container">
+                {tvshow.genres.map((genre) => (
+                  <div className="genre-bubble2" key={genre.id}>
+                    {genre.name}
+                  </div>
+                ))}
+              </div>
+            </div>
+          <div>
+          <div className="trailer-box-container">
+              {trailerEmbedUrl && (
+                <iframe className="trailer-embed"
+                  width="560"
+                  height="315"
+                  src={trailerEmbedUrl}
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              )}
+            </div>
+            </div>
+            </div>
           <p id="overview" className="text">
             {tvshow.overview}
           </p>
@@ -56,7 +78,9 @@ const SingleTVshow = () => {
           </div>
         </div>
       </div>
-      <Map />
+
+      {/* <Map /> */}
+
     </div>
   );
 };
