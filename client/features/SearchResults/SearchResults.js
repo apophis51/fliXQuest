@@ -11,6 +11,7 @@ const SearchResults = () => {
   const status = useSelector((state) => state.AllMovies.status);
   const error = useSelector((state) => state.AllMovies.error);
   let movieQuery = useSelector((state) => state.Navbar.movieQuery);
+  let navbarSearches = useSelector((state) => state.Navbar.navBarQueryCount);
   const navigate = useNavigate();
   const gpt3 = useSelector((state) => state.AllMovies.gptAnswer);
 
@@ -29,7 +30,7 @@ const SearchResults = () => {
     // if (gpt3.length < 0){
     // navigate(`/`)}
 
-  }, [] );
+  }, [navbarSearches,dispatch] );
 
   const movieReturn = useSelector((state) => state.AllMovies.movieReturn);
 console.log("moviereturn num2 is ", movieReturn)

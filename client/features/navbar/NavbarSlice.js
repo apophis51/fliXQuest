@@ -21,6 +21,7 @@ const navbarSlice = createSlice({
   initialState: {
     searchResults: [],
     movieQuery: "",
+    navBarQueryCount: 1,
     status: "idle",
     error: null,
   },
@@ -28,11 +29,15 @@ const navbarSlice = createSlice({
     movieQuery: (state, action) => {
       state.movieQuery = action.payload
     },
+    navBarQueryCount: (state, action) => {
+      state.navBarQueryCount = state.navBarQueryCount + 1
+    },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchSearchResults.pending, (state) => {
         state.status = "loading";
+        state.navBarQueryCount = state.navBarQueryCount
       })
       .addCase(fetchSearchResults.fulfilled, (state, action) => {
         state.status = "succeeded";
@@ -45,6 +50,6 @@ const navbarSlice = createSlice({
   },
 });
 
-export const { movieQuery } = navbarSlice.actions;
+export const { movieQuery, navBarQueryCount} = navbarSlice.actions;
 
 export default navbarSlice.reducer;
