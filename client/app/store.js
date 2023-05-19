@@ -10,6 +10,8 @@ import NavbarSlice from '../features/navbar/NavbarSlice';
 import movieTrailerSlice from '../features/movieTrailer/movieTrailerSlice';
 import MapSlice from '../features/Map/MapSlice';
 
+import AllCreditsSlice from '../features/Credits/creditsSlice';
+
 
 
 
@@ -25,6 +27,7 @@ const store = configureStore({
     MapSlice: MapSlice,
     Navbar: NavbarSlice,
     MovieTrailer: movieTrailerSlice,
+    Credits: AllCreditsSlice,
 
    },
   // middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),

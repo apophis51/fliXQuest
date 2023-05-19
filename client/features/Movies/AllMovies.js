@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchAllMovies } from "./AllMoviesSlice";
 import { Link } from "react-router-dom";
+
 const AllMovies = () => {
   const dispatch = useDispatch();
   const moviesResponse = useSelector((state) => state.AllMovies.movies);

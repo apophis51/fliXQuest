@@ -5,6 +5,7 @@ import {
   fetchMovieTrailer,
   selectSingleMovie,
 } from "./SingleMovieSlice";
+import AllCredits from "../../Credits/credits";
 import { useParams } from "react-router-dom";
 
 import Map from "../../Map/Map";
@@ -67,7 +68,7 @@ const SingleMovie = () => {
                     src={trailerEmbedUrl}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullScreen
+                    allowFullScreen
                   ></iframe>
                 )}
               </div>
@@ -88,6 +89,7 @@ const SingleMovie = () => {
           </div>
         </div>
       </div>
+      <AllCredits />
       <Map />
     </div>
   );
