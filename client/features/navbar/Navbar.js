@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../app/store";
-import { movieQuery } from "./NavbarSlice";
+import { movieQuery, navBarQueryCount } from "./NavbarSlice";
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.me.id);
@@ -23,7 +23,7 @@ const Navbar = () => {
   ///////////////////////////////////////////////delete this line when done troubleshooting
   const handleSearch = (event) => {
     event.preventDefault();
-    console.log("cool")
+    dispatch(navBarQueryCount())
       navigate(`/searchresults`);
   };
 ////////////////////////////////////////////////delete this line when done troubleshooting
