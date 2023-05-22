@@ -8,6 +8,7 @@ import AllTVshows from "../features/TVSHOWS/AllTVshows";
 import SingleMovie from "../features/Movies/SingleMovie/SingleMovie";
 import SingleTVshow from "../features/TVSHOWS/SingleTVshows/SingleTVshow";
 import SearchResults from "../features/SearchResults/SearchResults";
+import Team from "../features/Team";
 import { me } from "./store";
 
 const AppRoutes = () => {
@@ -47,6 +48,11 @@ const AppRoutes = () => {
               path="/signup"
               element={<AuthForm name="signup" displayName="Sign Up" />}
             />
+            <Route
+            exact
+            path="/team"
+            element={<Team />} />
+
             <Route exact path="/home" element={<Home />} />
             <Route exact path="/movies" element={<AllMovies />} />
             <Route exact path="/movies/:id" element={<SingleMovie />} />
