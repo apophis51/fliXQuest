@@ -14,7 +14,7 @@ export const runGpt = createAsyncThunk(
 const MapSlice = createSlice({
   name: "movies",
   initialState: {
-    filmLocations: [],
+    filmLocations: "",
     gptAnswer: "",
     movieReturn: 0,
 
@@ -23,7 +23,7 @@ const MapSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(runGpt.fulfilled, (state, action) => {
-        state.filmLocations.push(action.payload);
+        state.filmLocations = action.payload;
         console.log(action.payload)
       })
   },
