@@ -2,9 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 .body {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   background-color: black;
-  height: 820px;
+  height: 100%;
+}
+/* .front{
+  background-color: black;
+} */
+.front {
+  background-color: black;
+  width: 100%;
+  padding-right: 100%;
 }
 a {
   text-decoration: none;
@@ -135,7 +143,7 @@ form div {
 .movies-container {
   height: 90%;
   width: 75%;
-  padding-left: 200px;
+  /* padding-right: 35000px; */
 }
 .text {
   color: white;

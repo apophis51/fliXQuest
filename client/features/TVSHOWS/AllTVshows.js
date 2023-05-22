@@ -97,6 +97,10 @@ const AllTVshows = () => {
       <div id="slide1" className="carousel-item relative w-full">
         \{" "}
       </div>
+      <div className="front ">
+      {tvshows.map((movie) => ( 
+        <div>.</div>))}
+      </div>
     </div>
   );
 };

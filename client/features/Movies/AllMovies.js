@@ -105,6 +105,10 @@ const AllMovies = () => {
       <div id="slide1" className="carousel-item relative w-full">
         \{" "}
       </div>
+      <div className="front ">
+      {movies.map((movie) => ( 
+        <div>.</div>))}
+      </div>
     </div>
   );
 };
