@@ -84,12 +84,12 @@ const AllMovies = () => {
             key={movie.id}
           >
             <Link to={`/movies/${movie.id}`}>
-              <div key={movie.id} className="movie">
+              <div key={movie.id} className="movie text-white">
                 <img
                   src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
                   alt={movie.title}
                 />
-                <div className="movie-info">
+                <div className="movie-info b">
                   <h3>{movie.title}</h3>
                   <span className="vote-average">{movie.vote_average}</span>
                 </div>
@@ -104,6 +104,10 @@ const AllMovies = () => {
       </div>
       <div id="slide1" className="carousel-item relative w-full">
         \{" "}
+      </div>
+      <div className="front ">
+      {movies.map((movie) => ( 
+        <div>.</div>))}
       </div>
     </div>
   );

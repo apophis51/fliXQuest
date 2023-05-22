@@ -44,7 +44,7 @@ const SingleTVshow = () => {
               <img className="single-poster" src={imageUrl} alt={tvshow.name} />
               <div className="genre-container">
                 {tvshow.genres.map((genre) => (
-                  <div className="genre-bubble2" key={genre.id}>
+                  <div className="genre-bubble" key={genre.id}>
                     {genre.name}
                   </div>
                 ))}
