@@ -297,11 +297,9 @@ form div {
 } */
 .carousel-container {
   display: flex;
-  overflow-x: scroll;
   scroll-snap-type: x mandatory;
   padding-bottom: 10px;
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
 }
 .carousel-items {
   display: flex;

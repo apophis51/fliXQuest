@@ -84,9 +84,9 @@ const AllTVshows = () => {
                   <img
                     className="movie-poster"
                     src={`https://image.tmdb.org/t/p/w500${tvshow.poster_path}`}
-                    alt={tvshow.title}
+                    alt={tvshow.name}
                   />
-                  <div className="name">{tvshow.title}</div>
+                  <div className="name">{tvshow.name}</div>
                 </div>
                 <div className="rank-star"></div>
               </div>
