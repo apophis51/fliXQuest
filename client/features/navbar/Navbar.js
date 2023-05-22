@@ -62,7 +62,7 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="container">
-            <Link className="home-link" to="/">
+            <Link className="team-link" to="/">
             <div className="img">
               <img className="logo" src="/vendeta.png"/>
             </div>
@@ -82,6 +82,7 @@ const Navbar = () => {
               />
 
             </form>
+            <Link className="links" to="/team">Team</Link>
             <Link className="links" to="/login">
               Login
             </Link>
