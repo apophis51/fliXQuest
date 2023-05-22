@@ -3,15 +3,20 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchAllCredits } from "./creditsSlice";
 import { Link } from "react-router-dom";
 import Movies from "../Movies/AllMoviesSlice";
+import { useParams } from "react-router-dom";
+
 
 const AllCredits = () => {
   const dispatch = useDispatch();
   const status = useSelector((state) => state.Credits.status);
   const error = useSelector((state) => state.Credits.error);
-  const moviesResponse = useSelector((state) => state.Credits.cast);
+  const movienumber = useSelector((state) => state.SingleMovie.id)
+  const { id } = useParams();
+  const moviesResponse = useSelector((state) => state.Credits.credits.cast); ///////
+  console.log(moviesResponse)
 
-  useEffect((id) => {
-      const credit = dispatch(fetchAllCredits(713704));
+  useEffect(() => {
+      const credit = dispatch(fetchAllCredits(id));
       console.log(credit);
     },
     [dispatch]
@@ -23,18 +28,6 @@ const AllCredits = () => {
     return <div>Error: {error}</div>;
   }
 
-  // const movies =
-  //   moviesResponse && moviesResponse.results
-  //     ? moviesResponse.results
-  //         .filter((movie) => movie.title !== "Undefined")
-  //         .slice(0, 20)
-  //         .map((movie) => {
-  //           return {
-  //             ...movie,
-  //             overview: movie.overview || "No overview available.",
-  //           };
-  //         })
-  //     : [];
 
   if (!Array.isArray(moviesResponse) || moviesResponse.length === 0) {
     {
@@ -44,14 +37,15 @@ const AllCredits = () => {
   }
 
   return (
-    <div className="credits-container">
+    <div className="credits-container text-white carousel w-full">
       <p className="page-title">Credits</p>
       <div className="AllCredits"></div>
       {console.log("message 2", moviesResponse)}
       {moviesResponse.map((credits) => (
-        <div key={credits.id}>
+        <div key={credits.id} className = "carousel-item w-full">
           <div key={credits.id} className="credits">
-            <img
+
+            <img 
               src={`https://image.tmdb.org/t/p/w500/${credits.profile_path}`}
               alt={credits.name}
             />
