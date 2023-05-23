@@ -64,7 +64,6 @@ navigate(`/searchresults`);
       <div className="categories">
         {/* <p>Title</p> */}
         {/* <p className="text">Ranking</p> */}
-        <p id="release-date" className="text">Release Date</p>
       </div>
       <div className="AllMovies">
         <div className="inner-container">
