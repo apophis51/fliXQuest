@@ -27,7 +27,8 @@ router.get("audio/:query", async (req, res, next) => {
 router.get("/:query", async (req, res, next) => {
   try {
         const completion = await openai.createCompletion({
-        model: "text-davinci-003",
+        // model: "text-davinci-003", this model was depricated
+        model: "gpt-3.5-turbo-instruct",
         // prompt: req.params.query
         prompt: `find me a movie about ${req.params.query} and give me the title only and no punctuation`
     });
